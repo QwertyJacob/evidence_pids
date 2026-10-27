@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The alarm investigation process, with a shared daily question budget and a model fitted on source collections.">
+  <title>Alarm investigation process</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #202020;
+      background: #fff;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { max-width: 1584px; margin: 0 auto; padding: 36px 28px 24px; }
+
+    .page-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 24px 24px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid #d6d6d6;
+    }
+
+    .eyebrow {
+      margin: 0 0 9px;
+      color: #656565;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h1 { margin: 0; font-size: 23px; font-weight: 600; line-height: 1.25; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    button {
+      appearance: none;
+      border: 1px solid #bcbcbc;
+      border-radius: 0;
+      padding: 9px 13px;
+      background: #fff;
+      color: #202020;
+      font: 13px Arial, Helvetica, sans-serif;
+      cursor: pointer;
+    }
+
+    button:first-child { border-color: #202020; background: #202020; color: #fff; }
+    button:hover { background: #ececec; }
+    button:first-child:hover { background: #444; }
+    button:focus-visible, .diagram-viewport:focus-visible { outline: 2px solid #202020; outline-offset: 4px; }
+    button:disabled { opacity: 0.55; cursor: wait; }
+    figure { margin: 0; }
+    .diagram-viewport { overflow-x: auto; }
+    #process-diagram { display: block; width: 100%; min-width: 1080px; height: auto; }
+
+    figcaption {
+      max-width: 1050px;
+      margin: 22px 24px 0;
+      color: #555;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .status { min-height: 20px; margin: 10px 24px 0; color: #555; font-size: 12px; }
+
+    @media (max-width: 700px) {
+      main { padding: 22px 8px 16px; }
+      .page-header { padding: 0 16px 20px; margin-bottom: 20px; }
+      h1 { font-size: 21px; }
+      figcaption, .status { margin-left: 16px; margin-right: 16px; }
+    }
+
+    @media print {
+      @page { size: landscape; margin: 10mm; }
+      main { max-width: none; padding: 0; }
+      .page-header, figcaption, .status { display: none; }
+      .diagram-viewport { overflow: visible; }
+      #process-diagram { min-width: 0; width: 100%; }
+      figure { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Method overview</p>
+        <h1>Alarm investigation process</h1>
+      </div>
+      <nav class="actions" aria-label="Figure exports">
+        <button type="button" id="save-svg">Save SVG</button>
+        <button type="button" id="save-png">Save PNG</button>
+        <button type="button" id="print-figure">Print figure</button>
+      </nav>
+    </header>
+
+    <figure aria-labelledby="figure-caption">
+      <div class="diagram-viewport" tabindex="0" role="region" aria-label="Process diagram. Scroll horizontally on smaller screens.">
+        <svg id="process-diagram" xmlns="http://www.w3.org/2000/svg" width="1480" height="626" viewBox="0 0 1480 626" role="img" aria-labelledby="diagram-title diagram-description">
+          <title id="diagram-title">Evidence selection under a shared daily budget</title>
+          <desc id="diagram-description">Six stages run from left to right: detector, daily queue, starting belief, budget and filter, one question, and decision. Velox scores process windows of 15 minutes. A daily queue contains the N highest scores or the detector's own alerts. Each alarm starts at the attack share estimated on matching source queues. While budget remains, a criterion selects one question whose expected decision value exceeds its price. The answer updates the attack probability. If the budget is spent or no question is admissible, the alarm is decided at its starting probability. Escalation occurs when the current attack probability reaches one divided by one plus the cost ratio. An answer model fitted on source collections supplies the filter, the selection criterion and the decision update. Labels of the tested group are used only for evaluation.</desc>
+
+          <defs>
+            <marker id="flow-arrow" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+              <path d="M 0 0 L 8 4 L 0 8 Z" fill="#292929"/>
+            </marker>
+            <marker id="model-arrow" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M 0 0 L 8 4 L 0 8 Z" fill="#777"/>
+            </marker>
+          </defs>
+
+          <style>
+            text { font-family: Arial, Helvetica, sans-serif; fill: #202020; }
+            .group { font-size: 15px; font-weight: 600; letter-spacing: 1.2px; }
+            .rule { stroke: #c6c6c6; stroke-width: 1; fill: none; }
+            .stage { fill: #fff; stroke: #8c8c8c; stroke-width: 1.2; }
+            .stage-top { stroke: #292929; stroke-width: 2; }
+            .number { font-size: 14px; fill: #666; letter-spacing: 0.7px; }
+            .heading { font-size: 21px; font-weight: 600; }
+            .body { font-size: 19px; }
+            .small { font-size: 16px; fill: #555; }
+            .flow { fill: none; stroke: #292929; stroke-width: 1.5; stroke-linecap: butt; stroke-linejoin: miter; marker-end: url(#flow-arrow); }
+            .model-line { fill: none; stroke: #777; stroke-width: 1.2; stroke-linecap: butt; stroke-linejoin: miter; }
+            .model-input { marker-end: url(#model-arrow); }
+            .model-box { fill: #f5f5f5; stroke: #8c8c8c; stroke-width: 1.2; }
+            .math { font-family: Georgia, 'Times New Roman', serif; font-size: 24px; }
+            .key { font-size: 17px; fill: #505050; }
+            .symbol { font-style: italic; }
+          </style>
+
+          <rect width="1480" height="626" fill="#fff"/>
+
+          <text class="group" x="24" y="26">ALARM CONSTRUCTION</text>
+          <path class="rule" d="M 24 44 H 724"/>
+          <text class="group" x="756" y="26">EVIDENCE AND DECISION</text>
+          <path class="rule" d="M 756 44 H 1456"/>
+
+          <!-- The upper route skips the question when the filter or budget prevents it. -->
+          <text class="small" x="1106" y="78" text-anchor="middle">Budget spent or no admissible question</text>
+          <path class="flow" d="M 862 126 V 94 H 1350 V 126"/>
+
+          <g aria-label="Stage 1: Detector">
+            <rect class="stage" x="24" y="126" width="212" height="214"/>
+            <path class="stage-top" d="M 24 126 H 236"/>
+            <text class="number" x="42" y="156">01</text>
+            <text class="heading" x="42" y="190">Detector</text>
+            <text class="body" x="42" y="229">
+              <tspan x="42">Velox scores each</tspan>
+              <tspan x="42" dy="26">process window</tspan>
+              <tspan x="42" dy="26">of 15 minutes.</tspan>
+            </text>
+          </g>
+
+          <path class="flow" d="M 240 242 H 264"/>
+
+          <g aria-label="Stage 2: Daily queue">
+            <rect class="stage" x="268" y="126" width="212" height="214"/>
+            <path class="stage-top" d="M 268 126 H 480"/>
+            <text class="number" x="286" y="156">02</text>
+            <text class="heading" x="286" y="190">Daily queue</text>
+            <text class="body" x="286" y="229">
+              <tspan x="286">The <tspan class="symbol">N</tspan> highest scores</tspan>
+              <tspan x="286" dy="26">per day, or Velox’s</tspan>
+              <tspan x="286" dy="26">own alerts.</tspan>
+            </text>
+          </g>
+
+          <path class="flow" d="M 484 242 H 508"/>
+
+          <g aria-label="Stage 3: Starting belief">
+            <rect class="stage" x="512" y="126" width="212" height="214"/>
+            <path class="stage-top" d="M 512 126 H 724"/>
+            <text class="number" x="530" y="156">03</text>
+            <text class="heading" x="530" y="190">Starting belief</text>
+            <text class="body" x="530" y="229">
+              <tspan x="530">Attack share in the</tspan>
+              <tspan x="530" dy="26">same queue type on</tspan>
+              <tspan x="530" dy="26">source collections.</tspan>
+            </text>
+          </g>
+
+          <path class="flow" d="M 728 242 H 752"/>
+
+          <g aria-label="Stage 4: Budget and filter">
+            <rect class="stage" x="756" y="126" width="212" height="214"/>
+            <path class="stage-top" d="M 756 126 H 968"/>
+            <text class="number" x="774" y="156">04</text>
+            <text class="heading" x="774" y="190">Budget and filter</text>
+            <text class="body" x="774" y="229">
+              <tspan x="774">Budget <tspan class="symbol">B</tspan> per day.</tspan>
+              <tspan x="774" dy="26">A question is allowed</tspan>
+              <tspan x="774" dy="26">only if EDV &gt; <tspan class="symbol">c</tspan>.</tspan>
+            </text>
+          </g>
+
+          <path class="flow" d="M 972 242 H 996"/>
+
+          <g aria-label="Stage 5: One question">
+            <rect class="stage" x="1000" y="126" width="212" height="214"/>
+            <path class="stage-top" d="M 1000 126 H 1212"/>
+            <text class="number" x="1018" y="156">05</text>
+            <text class="heading" x="1018" y="190">One question</text>
+            <text class="body" x="1018" y="229">
+              <tspan x="1018">A criterion selects</tspan>
+              <tspan x="1018" dy="26">file, network or</tspan>
+              <tspan x="1018" dy="26">process history.</tspan>
+            </text>
+            <text class="small" x="1018" y="316">Bayesian update of <tspan class="symbol">p</tspan>.</text>
+          </g>
+
+          <path class="flow" d="M 1216 242 H 1240"/>
+
+          <g aria-label="Stage 6: Decision">
+            <rect class="stage" x="1244" y="126" width="212" height="214"/>
+            <path class="stage-top" d="M 1244 126 H 1456"/>
+            <text class="number" x="1262" y="156">06</text>
+            <text class="heading" x="1262" y="190">Decision</text>
+            <text class="body" x="1262" y="229">Escalate when</text>
+            <text class="math" x="1262" y="264"><tspan class="symbol">p</tspan> ≥ 1 / (1 + <tspan class="symbol">r</tspan>)</text>
+            <text class="body" x="1262" y="296">Otherwise dismiss.</text>
+            <text class="small" x="1262" y="322"><tspan class="symbol">r</tspan> = 10: threshold 9.1%</text>
+          </g>
+
+          <!-- The lower bus contains model inputs, not another process stage. -->
+          <path class="model-line" d="M 1106 432 V 390 M 862 390 H 1350"/>
+          <path class="model-line model-input" d="M 862 390 V 340"/>
+          <path class="model-line model-input" d="M 1106 390 V 340"/>
+          <path class="model-line model-input" d="M 1350 390 V 340"/>
+
+          <text class="group" x="24" y="455">QUEUE DISCIPLINE</text>
+          <text class="body" x="24" y="491">Process alarms from the top of each day’s queue.</text>
+          <text class="body" x="24" y="519">At most one question per alarm, while the budget lasts.</text>
+
+          <rect class="model-box" x="756" y="432" width="700" height="106"/>
+          <text class="heading" x="776" y="464">Answer model</text>
+          <text class="body" x="776" y="495">Answer frequencies in attack and benign windows, within each</text>
+          <text class="body" x="776" y="521">detector category. Fitted on source collections.</text>
+
+          <path class="rule" d="M 24 562 H 1456"/>
+          <text class="key" x="24" y="589"><tspan class="symbol">N</tspan>: alarms per day · <tspan class="symbol">B</tspan>: questions per collection and day · <tspan class="symbol">c</tspan>: question price in false escalations</text>
+          <text class="key" x="24" y="615"><tspan class="symbol">p</tspan>: current attack probability · <tspan class="symbol">r</tspan>: missed attack window cost / false escalation cost · EDV: expected decision value</text>
+        </svg>
+      </div>
+      <figcaption id="figure-caption">An admissible question has an expected saving in decision cost greater than its price. If no question is asked, the decision uses the starting belief. Labels of the tested group enter evaluation only.</figcaption>
+    </figure>
+    <p class="status" id="export-status" role="status" aria-live="polite"></p>
+  </main>
+
+  <script>
+    (() => {
+      'use strict';
+      const diagram = document.getElementById('process-diagram');
+      const status = document.getElementById('export-status');
+      const pngButton = document.getElementById('save-png');
+
+      function svgBlob() {
+        const copy = diagram.cloneNode(true);
+        copy.removeAttribute('id');
+        const source = '<?xml version="1.0" encoding="UTF-8"?>\n' + new XMLSerializer().serializeToString(copy);
+        return new Blob([source], { type: 'image/svg+xml;charset=utf-8' });
+      }
+
+      function download(blob, filename) {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+
+      document.getElementById('save-svg').addEventListener('click', () => {
+        download(svgBlob(), 'f1_process.svg');
+        status.textContent = 'SVG saved.';
+      });
+
+      pngButton.addEventListener('click', async () => {
+        pngButton.disabled = true;
+        status.textContent = 'Preparing PNG…';
+        const url = URL.createObjectURL(svgBlob());
+        try {
+          const image = new Image();
+          image.src = url;
+          await image.decode();
+          const canvas = document.createElement('canvas');
+          canvas.width = 4440;
+          canvas.height = 1878;
+          const context = canvas.getContext('2d');
+          if (!context) throw new Error('Canvas is unavailable.');
+          context.drawImage(image, 0, 0, canvas.width, canvas.height);
+          const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+          if (!blob) throw new Error('PNG export failed.');
+          download(blob, 'f1_process.png');
+          status.textContent = 'PNG saved at 4440 × 1878 pixels.';
+        } catch (error) {
+          status.textContent = 'PNG export is unavailable in this browser. Save SVG instead.';
+        } finally {
+          URL.revokeObjectURL(url);
+          pngButton.disabled = false;
+        }
+      });
+
+      document.getElementById('print-figure').addEventListener('click', () => window.print());
+    })();
+  </script>
+</body>
+</html>

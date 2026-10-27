@@ -1,0 +1,129 @@
+{
+ "generated": "2026-10-27T08:26:01.909126+00:00",
+ "script": "scripts/power.py",
+ "rows": 20160,
+ "monte_carlo": [
+  {
+   "queue": "3",
+   "pair": "edv-ig",
+   "closed_mean": -1.3548557902694998,
+   "mc_mean": -1.3991,
+   "closed_var": 20.35806789999871,
+   "mc_var": 20.63441919
+  },
+  {
+   "queue": "3",
+   "pair": "edv-random",
+   "closed_mean": -2.1061824118360883,
+   "mc_mean": -2.0711850000000003,
+   "closed_var": 30.77587842468408,
+   "mc_var": 31.137978195775002
+  },
+  {
+   "queue": "3",
+   "pair": "ig-random",
+   "closed_mean": -0.7513266215665879,
+   "mc_mean": -0.7285699999999999,
+   "closed_var": 22.632651264684597,
+   "mc_var": 23.013810755100003
+  },
+  {
+   "queue": "3",
+   "pair": "edv-order_fnp",
+   "closed_mean": -0.07973173573347458,
+   "mc_mean": -0.0409,
+   "closed_var": 18.87188118839301,
+   "mc_var": 19.345527190000006
+  },
+  {
+   "queue": "3",
+   "pair": "edv-none",
+   "closed_mean": -2.2702638210111514,
+   "mc_mean": -2.19095,
+   "closed_var": 57.84522135932108,
+   "mc_var": 58.2663880975
+  },
+  {
+   "queue": "10",
+   "pair": "edv-ig",
+   "closed_mean": 0.0,
+   "mc_mean": 0.0,
+   "closed_var": 0.0,
+   "mc_var": 0.0
+  },
+  {
+   "queue": "10",
+   "pair": "edv-random",
+   "closed_mean": -28.736694941094942,
+   "mc_mean": -28.791949999999993,
+   "closed_var": 70.46638337451184,
+   "mc_var": 69.58595019749997
+  },
+  {
+   "queue": "10",
+   "pair": "ig-random",
+   "closed_mean": -28.736694941094942,
+   "mc_mean": -28.701914999999996,
+   "closed_var": 70.46638337451184,
+   "mc_var": 71.73843883277497
+  },
+  {
+   "queue": "10",
+   "pair": "edv-order_fnp",
+   "closed_mean": -9.124433843898693,
+   "mc_mean": -9.1098,
+   "closed_var": 88.24066027558389,
+   "mc_var": 87.46034396
+  },
+  {
+   "queue": "10",
+   "pair": "edv-none",
+   "closed_mean": -133.01037081401395,
+   "mc_mean": -132.989,
+   "closed_var": 767.5357268644509,
+   "mc_var": 756.153079
+  },
+  {
+   "queue": "alert",
+   "pair": "edv-ig",
+   "closed_mean": -0.7602722208467307,
+   "mc_mean": -0.77925,
+   "closed_var": 16.264436137829357,
+   "mc_var": 16.406019437500003
+  },
+  {
+   "queue": "alert",
+   "pair": "edv-random",
+   "closed_mean": 26.83317461964538,
+   "mc_mean": 26.897855000000003,
+   "closed_var": 42.79329515606063,
+   "mc_var": 41.83120789897502
+  },
+  {
+   "queue": "alert",
+   "pair": "ig-random",
+   "closed_mean": 27.59344684049211,
+   "mc_mean": 27.578600000000005,
+   "closed_var": 36.28752070092889,
+   "mc_var": 36.09118304000001
+  },
+  {
+   "queue": "alert",
+   "pair": "edv-order_fnp",
+   "closed_mean": -2.307383602054881,
+   "mc_mean": -2.29855,
+   "closed_var": 24.551141500657366,
+   "mc_var": 24.480017897499998
+  },
+  {
+   "queue": "alert",
+   "pair": "edv-none",
+   "closed_mean": -32.493957654755235,
+   "mc_mean": -32.48145,
+   "closed_var": 123.48525518541403,
+   "mc_var": 126.3230558975
+  }
+ ],
+ "passed": true,
+ "note": "Model based: labels drawn from the model probabilities."
+}

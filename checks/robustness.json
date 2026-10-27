@@ -1,0 +1,13 @@
+{
+ "generated": "2026-10-27T08:26:21.829482+00:00",
+ "script": "scripts/robustness.py",
+ "outputs": [
+  "results/robustness_bootstrap.csv",
+  "results/robustness_sensitivity.csv",
+  "results/robustness_starts.csv",
+  "results/robustness_predictive.csv",
+  "results/robustness_fitted_lr.csv",
+  "results/robustness_per_group.csv",
+  "results/robustness_random_seeds.csv"
+ ]
+}

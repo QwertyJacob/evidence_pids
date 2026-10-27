@@ -1,0 +1,154 @@
+{
+ "groups": {
+  "DARPA_TC": [
+   "CADETS_E3",
+   "CLEARSCOPE_E3",
+   "THEIA_E3"
+  ],
+  "OpTC": [
+   "optc_h051"
+  ],
+  "ATLASv2": [
+   "ATLASV2_EDR"
+  ]
+ },
+ "tau": 10000,
+ "folds": [
+  {
+   "id": "velox_holdout_DARPA_TC",
+   "target_group": "DARPA_TC",
+   "fitting_groups": [
+    "OpTC",
+    "ATLASv2"
+   ],
+   "fitting": [
+    {
+     "dataset": "optc_h051",
+     "splits": [
+      "val",
+      "test"
+     ]
+    },
+    {
+     "dataset": "ATLASV2_EDR",
+     "splits": [
+      "val",
+      "test"
+     ]
+    }
+   ],
+   "target_evaluation": [
+    {
+     "dataset": "CADETS_E3",
+     "splits": [
+      "test"
+     ]
+    },
+    {
+     "dataset": "CLEARSCOPE_E3",
+     "splits": [
+      "test"
+     ]
+    },
+    {
+     "dataset": "THEIA_E3",
+     "splits": [
+      "test"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "velox_holdout_OpTC",
+   "target_group": "OpTC",
+   "fitting_groups": [
+    "DARPA_TC",
+    "ATLASv2"
+   ],
+   "fitting": [
+    {
+     "dataset": "CADETS_E3",
+     "splits": [
+      "val",
+      "test"
+     ]
+    },
+    {
+     "dataset": "CLEARSCOPE_E3",
+     "splits": [
+      "val",
+      "test"
+     ]
+    },
+    {
+     "dataset": "THEIA_E3",
+     "splits": [
+      "val",
+      "test"
+     ]
+    },
+    {
+     "dataset": "ATLASV2_EDR",
+     "splits": [
+      "val",
+      "test"
+     ]
+    }
+   ],
+   "target_evaluation": [
+    {
+     "dataset": "optc_h051",
+     "splits": [
+      "test"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "velox_holdout_ATLASv2",
+   "target_group": "ATLASv2",
+   "fitting_groups": [
+    "DARPA_TC",
+    "OpTC"
+   ],
+   "fitting": [
+    {
+     "dataset": "CADETS_E3",
+     "splits": [
+      "val",
+      "test"
+     ]
+    },
+    {
+     "dataset": "CLEARSCOPE_E3",
+     "splits": [
+      "val",
+      "test"
+     ]
+    },
+    {
+     "dataset": "THEIA_E3",
+     "splits": [
+      "val",
+      "test"
+     ]
+    },
+    {
+     "dataset": "optc_h051",
+     "splits": [
+      "val",
+      "test"
+     ]
+    }
+   ],
+   "target_evaluation": [
+    {
+     "dataset": "ATLASV2_EDR",
+     "splits": [
+      "test"
+     ]
+    }
+   ]
+  }
+ ]
+}

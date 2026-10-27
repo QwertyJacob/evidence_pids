@@ -1,0 +1,21 @@
+{
+ "generated": "2026-10-27T08:21:16.097742+00:00",
+ "script": "scripts/budget_replay.py",
+ "rows": 111776,
+ "merged_rows": 111776,
+ "count_by_alarm_mismatches": 0,
+ "prefix_rule_checked": 10059840,
+ "prefix_rule_failures": 0,
+ "prefix_examples": [],
+ "passed": true,
+ "rebuild_from_by_alarm": {
+  "cells_fields_compared": 470400,
+  "max_abs_difference": 0.0,
+  "failures": 0,
+  "examples": [],
+  "pooled_darpa_max_abs_difference": 1.4210854715202004e-14,
+  "passed": true,
+  "generated": "2026-10-27T08:21:46.738677+00:00",
+  "script": "scripts/replay_summary.py"
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "generated": "2026-10-27T08:22:11.805532+00:00",
+ "script": "scripts/value.py",
+ "alarms": {
+  "rows": 110880,
+  "value_rebuilt_max_abs_difference": 0.0,
+  "decision_loss_rebuilt_max_abs_difference": 5.684341886080802e-14,
+  "passed": true
+ },
+ "calibration_rows": 18648,
+ "passed": true
+}

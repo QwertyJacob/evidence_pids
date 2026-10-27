@@ -1,0 +1,27 @@
+{
+ "generated": "2026-10-27T08:20:18.432074+00:00",
+ "script": "scripts/count.py",
+ "checks": [
+  {
+   "check": "every criterion asks exactly on the alarms with an admissible question",
+   "passed": true
+  },
+  {
+   "check": "every chosen question is admissible",
+   "passed": true
+  },
+  {
+   "check": "EDV criterion picks a largest EDV among admissible questions",
+   "passed": true
+  },
+  {
+   "check": "admissible alarms never increase with the price",
+   "passed": true
+  },
+  {
+   "check": "admissible windows never increase with the price",
+   "passed": true
+  }
+ ],
+ "all_passed": true
+}

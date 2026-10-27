@@ -1,0 +1,165 @@
+claim,quantity,scope,min,max,cells,source,note
+C1,share of alarms with an admissible question,1,0,1,15,results/count.csv,
+C1,alarms with an admissible question,1,0,13,15,results/count.csv,out of 13 alarms
+C1,share of alarms with an admissible question,3,0,0.717949,15,results/count.csv,
+C1,alarms with an admissible question,3,0,28,15,results/count.csv,out of 39 alarms
+C1,share of alarms with an admissible question,10,0,1,15,results/count.csv,
+C1,alarms with an admissible question,10,0,130,15,results/count.csv,out of 130 alarms
+C1,share of alarms with an admissible question,30,0,1,15,results/count.csv,
+C1,alarms with an admissible question,30,0,390,15,results/count.csv,out of 390 alarms
+C1,share of alarms with an admissible question,alert,0,1,15,results/count.csv,
+C1,alarms with an admissible question,alert,0,124,15,results/count.csv,out of 124 alarms
+C1,"share of alarms with an admissible question, c <= 0.01",1,0.230769,1,6,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c = 0.03",1,0.230769,1,3,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c >= 0.1",1,0,0.923077,6,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c <= 0.01",3,0.384615,0.717949,6,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c = 0.03",3,0.384615,0.717949,3,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c >= 0.1",3,0,0.25641,6,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c <= 0.01",10,0.384615,1,6,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c = 0.03",10,0.184615,0.561538,3,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c >= 0.1",10,0,0.184615,6,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c <= 0.01",30,0.164103,1,6,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c = 0.03",30,0.0179487,0.692308,3,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c >= 0.1",30,0,0.164103,6,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c <= 0.01",alert,0.0564516,1,6,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c = 0.03",alert,0.0564516,0.967742,3,results/count.csv,"r in {5, 10, 20}"
+C1,"share of alarms with an admissible question, c >= 0.1",alert,0,0.0564516,6,results/count.csv,"r in {5, 10, 20}"
+C1,windows with an admissible question,all test windows,0,7,15,results/count_windows.csv,out of 133397 windows
+C1,windows with an admissible question at c = 0,all test windows,7,7,3,results/count_windows.csv,
+C1,start of the queue (probability),1,0.0909091,0.105263,3,results/starts.csv,
+C1,"factor needed at r = 10, 1/(10 O)",1,0.85,1,3,results/starts.csv,
+C1,start of the queue (probability),3,0.0344828,0.113208,3,results/starts.csv,
+C1,"factor needed at r = 10, 1/(10 O)",3,0.783333,2.8,3,results/starts.csv,
+C1,start of the queue (probability),10,0.0326087,0.0714286,3,results/starts.csv,
+C1,"factor needed at r = 10, 1/(10 O)",10,1.3,2.96667,3,results/starts.csv,
+C1,start of the queue (probability),30,0.0294118,0.0321361,3,results/starts.csv,
+C1,"factor needed at r = 10, 1/(10 O)",30,3.01176,3.3,3,results/starts.csv,
+C1,start of the queue (probability),alert,0.0813008,0.111111,3,results/starts.csv,
+C1,"factor needed at r = 10, 1/(10 O)",alert,0.8,1.13,3,results/starts.csv,
+C1,start of the queue (probability),100,0.012643,0.016624,3,results/starts.csv,
+C1,"factor needed at r = 10, 1/(10 O)",100,5.91538,7.80952,3,results/starts.csv,
+C2,alarms where EDV and IG ask different questions,1,0,6,90,results/count.csv,all budgets
+C2,alarms where EDV and IG decide differently,1,0,4,90,results/count.csv,all budgets
+C2,alarms where EDV and random decide differently (mean of seeds),1,0,4.7,90,results/count.csv,all budgets
+C2,alarms where IG and random decide differently (mean of seeds),1,0,3.3,90,results/count.csv,all budgets
+C2,alarms where some two criteria decide differently,1,0,7,90,results/count.csv,all budgets
+C2,alarms questioned,1,0,13,90,results/count.csv,all budgets
+C2,"alarms where EDV and IG decide differently, B infinite",1,0,4,15,results/count.csv,
+C2,alarms where EDV and IG ask different questions,3,0,4,90,results/count.csv,all budgets
+C2,alarms where EDV and IG decide differently,3,0,1,90,results/count.csv,all budgets
+C2,alarms where EDV and random decide differently (mean of seeds),3,0,7.5,90,results/count.csv,all budgets
+C2,alarms where IG and random decide differently (mean of seeds),3,0,7.5,90,results/count.csv,all budgets
+C2,alarms where some two criteria decide differently,3,0,18,90,results/count.csv,all budgets
+C2,alarms questioned,3,0,28,90,results/count.csv,all budgets
+C2,"alarms where EDV and IG decide differently, B infinite",3,0,1,15,results/count.csv,
+C2,alarms where EDV and IG ask different questions,10,0,44,90,results/count.csv,all budgets
+C2,alarms where EDV and IG decide differently,10,0,18,90,results/count.csv,all budgets
+C2,alarms where EDV and random decide differently (mean of seeds),10,0,20.3,90,results/count.csv,all budgets
+C2,alarms where IG and random decide differently (mean of seeds),10,0,20.7,90,results/count.csv,all budgets
+C2,alarms where some two criteria decide differently,10,0,52,90,results/count.csv,all budgets
+C2,alarms questioned,10,0,130,90,results/count.csv,all budgets
+C2,"alarms where EDV and IG decide differently, B infinite",10,0,18,15,results/count.csv,
+C2,alarms where EDV and IG ask different questions,30,0,0,90,results/count.csv,all budgets
+C2,alarms where EDV and IG decide differently,30,0,0,90,results/count.csv,all budgets
+C2,alarms where EDV and random decide differently (mean of seeds),30,0,37.3,90,results/count.csv,all budgets
+C2,alarms where IG and random decide differently (mean of seeds),30,0,37.3,90,results/count.csv,all budgets
+C2,alarms where some two criteria decide differently,30,0,95,90,results/count.csv,all budgets
+C2,alarms questioned,30,0,390,90,results/count.csv,all budgets
+C2,"alarms where EDV and IG decide differently, B infinite",30,0,0,15,results/count.csv,
+C2,alarms where EDV and IG ask different questions,alert,0,4,90,results/count.csv,all budgets
+C2,alarms where EDV and IG decide differently,alert,0,1,90,results/count.csv,all budgets
+C2,alarms where EDV and random decide differently (mean of seeds),alert,0,37.2,90,results/count.csv,all budgets
+C2,alarms where IG and random decide differently (mean of seeds),alert,0,36.8,90,results/count.csv,all budgets
+C2,alarms where some two criteria decide differently,alert,0,108,90,results/count.csv,all budgets
+C2,alarms questioned,alert,0,124,90,results/count.csv,all budgets
+C2,"alarms where EDV and IG decide differently, B infinite",alert,0,1,15,results/count.csv,
+C3,value per question (edv),1,-0.25,0.444444,13,results/value.csv,B infinite
+C3,"value per question (edv), c <= 0.01",1,0.307692,0.444444,6,results/value.csv,B infinite
+C3,"value per question (edv), c >= 0.03",1,-0.25,0.444444,7,results/value.csv,B infinite
+C3,cells with positive net value (edv),1,11,11,1,results/value.csv,of 13 cells with questions
+C3,value per question (ig),1,-0.25,0.666667,13,results/value.csv,B infinite
+C3,"value per question (ig), c <= 0.01",1,0.333333,0.615385,6,results/value.csv,B infinite
+C3,"value per question (ig), c >= 0.03",1,-0.25,0.666667,7,results/value.csv,B infinite
+C3,cells with positive net value (ig),1,11,11,1,results/value.csv,of 13 cells with questions
+C3,value per question (random),1,-0.4,0.569231,13,results/value.csv,B infinite
+C3,"value per question (random), c <= 0.01",1,0.333333,0.546154,6,results/value.csv,B infinite
+C3,"value per question (random), c >= 0.03",1,-0.4,0.569231,7,results/value.csv,B infinite
+C3,cells with positive net value (random),1,11,11,1,results/value.csv,of 13 cells with questions
+C3,value per question (edv),3,-0.5,3.5,13,results/value.csv,B infinite
+C3,"value per question (edv), c <= 0.01",3,-0.466667,3.5,6,results/value.csv,B infinite
+C3,"value per question (edv), c >= 0.03",3,-0.5,3.5,7,results/value.csv,B infinite
+C3,cells with positive net value (edv),3,7,7,1,results/value.csv,of 13 cells with questions
+C3,value per question (ig),3,-0.5,3.5,13,results/value.csv,B infinite
+C3,"value per question (ig), c <= 0.01",3,-0.466667,3.5,6,results/value.csv,B infinite
+C3,"value per question (ig), c >= 0.03",3,-0.5,3.5,7,results/value.csv,B infinite
+C3,cells with positive net value (ig),3,7,7,1,results/value.csv,of 13 cells with questions
+C3,value per question (random),3,-0.46,3.35357,13,results/value.csv,B infinite
+C3,"value per question (random), c <= 0.01",3,-0.386667,2.57143,6,results/value.csv,B infinite
+C3,"value per question (random), c >= 0.03",3,-0.46,3.35357,7,results/value.csv,B infinite
+C3,cells with positive net value (random),3,7,7,1,results/value.csv,of 13 cells with questions
+C3,value per question (edv),10,-0.714286,0.917808,14,results/value.csv,B infinite
+C3,"value per question (edv), c <= 0.01",10,-0.34,0.769231,6,results/value.csv,B infinite
+C3,"value per question (edv), c >= 0.03",10,-0.714286,0.917808,8,results/value.csv,B infinite
+C3,cells with positive net value (edv),10,6,6,1,results/value.csv,of 14 cells with questions
+C3,value per question (ig),10,-0.714286,1.43077,14,results/value.csv,B infinite
+C3,"value per question (ig), c <= 0.01",10,-0.34,1.43077,6,results/value.csv,B infinite
+C3,"value per question (ig), c >= 0.03",10,-0.714286,0.931507,8,results/value.csv,B infinite
+C3,cells with positive net value (ig),10,6,6,1,results/value.csv,of 14 cells with questions
+C3,value per question (random),10,-0.714286,1.00308,14,results/value.csv,B infinite
+C3,"value per question (random), c <= 0.01",10,-0.326,1.00308,6,results/value.csv,B infinite
+C3,"value per question (random), c >= 0.03",10,-0.714286,0.923288,8,results/value.csv,B infinite
+C3,cells with positive net value (random),10,6,6,1,results/value.csv,of 14 cells with questions
+C3,value per question (edv),30,-0.714286,0.310256,12,results/value.csv,B infinite
+C3,"value per question (edv), c <= 0.01",30,-0.1875,0.310256,6,results/value.csv,B infinite
+C3,"value per question (edv), c >= 0.03",30,-0.714286,0.27037,6,results/value.csv,B infinite
+C3,cells with positive net value (edv),30,4,4,1,results/value.csv,of 12 cells with questions
+C3,value per question (ig),30,-0.714286,0.310256,12,results/value.csv,B infinite
+C3,"value per question (ig), c <= 0.01",30,-0.1875,0.310256,6,results/value.csv,B infinite
+C3,"value per question (ig), c >= 0.03",30,-0.714286,0.27037,6,results/value.csv,B infinite
+C3,cells with positive net value (ig),30,4,4,1,results/value.csv,of 12 cells with questions
+C3,value per question (random),30,-0.714286,0.371026,12,results/value.csv,B infinite
+C3,"value per question (random), c <= 0.01",30,-0.171875,0.371026,6,results/value.csv,B infinite
+C3,"value per question (random), c >= 0.03",30,-0.714286,0.271852,6,results/value.csv,B infinite
+C3,cells with positive net value (random),30,4,4,1,results/value.csv,of 12 cells with questions
+C3,value per question (edv),alert,-0.857143,0.142857,14,results/value.csv,B infinite
+C3,"value per question (edv), c <= 0.01",alert,0.00806452,0.142857,6,results/value.csv,B infinite
+C3,"value per question (edv), c >= 0.03",alert,-0.857143,0.142857,8,results/value.csv,B infinite
+C3,cells with positive net value (edv),alert,8,8,1,results/value.csv,of 14 cells with questions
+C3,value per question (ig),alert,-0.714286,0.285714,14,results/value.csv,B infinite
+C3,"value per question (ig), c <= 0.01",alert,0.016129,0.285714,6,results/value.csv,B infinite
+C3,"value per question (ig), c >= 0.03",alert,-0.714286,0.285714,8,results/value.csv,B infinite
+C3,cells with positive net value (ig),alert,9,9,1,results/value.csv,of 14 cells with questions
+C3,value per question (random),alert,-0.8,0.2,14,results/value.csv,B infinite
+C3,"value per question (random), c <= 0.01",alert,0.126613,0.2,6,results/value.csv,B infinite
+C3,"value per question (random), c >= 0.03",alert,-0.8,0.2,8,results/value.csv,B infinite
+C3,cells with positive net value (random),alert,9,9,1,results/value.csv,of 14 cells with questions
+C3,"value per question, all realistic queues and criteria",all,-0.857143,3.5,198,results/value.csv,
+C3,"cells where the sign of the net value differs between EDV, IG and random",all,1,1,1,results/value.csv,of 66 cells with questions
+C3,"value per question in minutes, m = 10 to 40",all,-34.2857,140,396,results/minutes.csv,
+C3,"value per question on windows, unfiltered IG, random, fixed order",all test windows,-3.75074e-05,1.5003e-05,6,results/value_windows.csv,
+C3,"value per question on windows, unfiltered EDV",all test windows,-0.857143,0.142857,3,results/value_windows.csv,
+C3,"questions on windows, unfiltered IG and random",all test windows,133307,133307,6,results/value_windows.csv,
+C3,"value per question on windows, filtered",all test windows,-0.857143,0.285714,42,results/value_windows.csv,
+C3,expected value per question (model),realistic alarms,0.0265767,0.429228,198,results/calibration.csv,
+C3,realised value per question (labels),realistic alarms,-0.857143,3.5,198,results/calibration.csv,
+C3,cells where the realised value is negative (expected always positive),realistic alarms,69,69,1,results/calibration.csv,of 198 cells; expected > 0 in 198
+C3,cells where realised is below expected,realistic alarms,100,100,1,results/calibration.csv,of 198 cells
+C3,"decision loss D, B = 1, EDV, IG, random (r = 10, c = 0.01)",1,4,8,3,results/replay.parquet,no question: 12
+C3,"decision loss D, B = inf, EDV, IG, random (r = 10, c = 0.01)",1,4,8,3,results/replay.parquet,no question: 12
+C3,"decision loss D, B = 1, EDV, IG, random (r = 10, c = 0.01)",3,52,53.1,3,results/replay.parquet,no question: 65
+C3,"decision loss D, B = inf, EDV, IG, random (r = 10, c = 0.01)",3,28,29.5,3,results/replay.parquet,no question: 65
+C3,"decision loss D, B = 1, EDV, IG, random (r = 10, c = 0.01)",10,111,111.7,3,results/replay.parquet,no question: 120
+C3,"decision loss D, B = inf, EDV, IG, random (r = 10, c = 0.01)",10,97,102.5,3,results/replay.parquet,no question: 120
+C3,"decision loss D, B = 1, EDV, IG, random (r = 10, c = 0.01)",30,191,191.3,3,results/replay.parquet,no question: 190
+C3,"decision loss D, B = inf, EDV, IG, random (r = 10, c = 0.01)",30,206.3,207,3,results/replay.parquet,no question: 190
+C3,"decision loss D, B = 1, EDV, IG, random (r = 10, c = 0.01)",alert,108.6,110,3,results/replay.parquet,no question: 108
+C3,"decision loss D, B = inf, EDV, IG, random (r = 10, c = 0.01)",alert,84.5,107,3,results/replay.parquet,no question: 108
+C4,"median distinct attacks needed, edv-random",by queue,231.086,9577.53,5,results/power_realistic.csv,
+C4,"cells needing more attacks than observed, edv-random",by queue,88,90,5,results/power_realistic.csv,of 90 cells per queue
+C4,"median distinct attacks needed, ig-random",by queue,485.601,9577.53,5,results/power_realistic.csv,
+C4,"cells needing more attacks than observed, ig-random",by queue,88,90,5,results/power_realistic.csv,of 90 cells per queue
+C4,"median distinct attacks needed, edv-ig",by queue,231.086,5445.61,4,results/power_realistic.csv,
+C4,"cells needing more attacks than observed, edv-ig",by queue,90,90,5,results/power_realistic.csv,of 90 cells per queue
+C4,"median distinct attacks needed, edv-none",by queue,9.58255,87.9693,5,results/power_realistic.csv,
+C4,"cells needing more attacks than observed, edv-none",by queue,84,90,5,results/power_realistic.csv,of 90 cells per queue
+C4,observed distinct attacks,by queue,1,6,5,results/power_realistic.csv,

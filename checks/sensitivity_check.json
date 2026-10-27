@@ -1,0 +1,20 @@
+{
+ "generated": "2026-10-27T08:25:43.175219+00:00",
+ "script": "scripts/sensitivity.py",
+ "rows": 451584,
+ "assignment_edv_equals_default_at_B_inf": {
+  "rows": 18144,
+  "max_abs_difference": 0.0,
+  "passed": true
+ },
+ "successive_equals_default_at_B_1": {
+  "rows": 18144,
+  "max_abs_difference": 0.0,
+  "passed": true
+ },
+ "tau_none_equals_default": {
+  "max_abs_difference": 0.0,
+  "passed": true
+ },
+ "passed": true
+}

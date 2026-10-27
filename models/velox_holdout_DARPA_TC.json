@@ -1,0 +1,885 @@
+{
+ "branch": "history_v1",
+ "fold": "velox_holdout_DARPA_TC",
+ "context_symbols": [
+  "unscored",
+  "low",
+  "high",
+  "alert"
+ ],
+ "context_priors": {
+  "unscored": {
+   "positive": 33,
+   "comparison": 24055,
+   "supported": true,
+   "prior": 0.00141137401411374,
+   "laplace": 0.00141137401411374
+  },
+  "low": {
+   "positive": 127,
+   "comparison": 31237,
+   "supported": true,
+   "prior": 0.0040808518778294965,
+   "laplace": 0.0040808518778294965
+  },
+  "high": {
+   "positive": 53,
+   "comparison": 6825,
+   "supported": true,
+   "prior": 0.007848837209302326,
+   "laplace": 0.007848837209302326
+  },
+  "alert": {
+   "positive": 0,
+   "comparison": 0,
+   "supported": false,
+   "prior": 0.003433228518257075,
+   "laplace": 0.5
+  }
+ },
+ "global_prior": 0.003433228518257075,
+ "masks": {
+  "file,network,process": {
+   "mask": [
+    "file",
+    "network",
+    "process"
+   ],
+   "alphabets": {
+    "file": [
+     "empty",
+     "known",
+     "novel"
+    ],
+    "network": [
+     "empty",
+     "known",
+     "novel"
+    ],
+    "process": [
+     "empty",
+     "known",
+     "novel"
+    ]
+   },
+   "merged": {
+    "file": false,
+    "network": false,
+    "process": false
+   },
+   "marginals": {
+    "file": [
+     0.21928445371410235,
+     0.6348788705278358,
+     0.14583667575806192
+    ],
+    "network": [
+     0.9186587518049093,
+     0.035247874217872614,
+     0.046093373977218036
+    ],
+    "process": [
+     0.4749879672709771,
+     0.4890261511310765,
+     0.03598588159794641
+    ]
+   },
+   "strata": {
+    "pooled": {
+     "0": [
+      [
+       [
+        0,
+        12473,
+        350
+       ],
+       [
+        397,
+        145,
+        0
+       ],
+       [
+        72,
+        165,
+        0
+       ]
+      ],
+      [
+       [
+        25804,
+        12356,
+        276
+       ],
+       [
+        212,
+        207,
+        19
+       ],
+       [
+        154,
+        389,
+        106
+       ]
+      ],
+      [
+       [
+        1897,
+        3148,
+        873
+       ],
+       [
+        396,
+        565,
+        239
+       ],
+       [
+        621,
+        945,
+        308
+       ]
+      ]
+     ],
+     "1": [
+      [
+       [
+        0,
+        13,
+        6
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        38,
+        9,
+        0
+       ]
+      ],
+      [
+       [
+        1,
+        3,
+        15
+       ],
+       [
+        0,
+        0,
+        3
+       ],
+       [
+        0,
+        27,
+        0
+       ]
+      ],
+      [
+       [
+        10,
+        9,
+        26
+       ],
+       [
+        0,
+        0,
+        14
+       ],
+       [
+        4,
+        27,
+        8
+       ]
+      ]
+     ]
+    },
+    "context:unscored": {
+     "0": [
+      [
+       [
+        0,
+        4666,
+        36
+       ],
+       [
+        19,
+        38,
+        0
+       ],
+       [
+        31,
+        84,
+        0
+       ]
+      ],
+      [
+       [
+        13029,
+        4284,
+        28
+       ],
+       [
+        31,
+        57,
+        0
+       ],
+       [
+        40,
+        29,
+        0
+       ]
+      ],
+      [
+       [
+        533,
+        677,
+        202
+       ],
+       [
+        49,
+        52,
+        4
+       ],
+       [
+        71,
+        79,
+        16
+       ]
+      ]
+     ],
+     "1": [
+      [
+       [
+        0,
+        8,
+        4
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        6,
+        0,
+        0
+       ]
+      ],
+      [
+       [
+        1,
+        0,
+        1
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0,
+        3,
+        0
+       ]
+      ],
+      [
+       [
+        4,
+        0,
+        1
+       ],
+       [
+        0,
+        0,
+        1
+       ],
+       [
+        0,
+        4,
+        0
+       ]
+      ]
+     ]
+    },
+    "context:low": {
+     "0": [
+      [
+       [
+        0,
+        6582,
+        307
+       ],
+       [
+        377,
+        102,
+        0
+       ],
+       [
+        39,
+        61,
+        0
+       ]
+      ],
+      [
+       [
+        12419,
+        6354,
+        192
+       ],
+       [
+        61,
+        104,
+        16
+       ],
+       [
+        44,
+        349,
+        77
+       ]
+      ],
+      [
+       [
+        1006,
+        1390,
+        485
+       ],
+       [
+        104,
+        275,
+        93
+       ],
+       [
+        227,
+        504,
+        69
+       ]
+      ]
+     ],
+     "1": [
+      [
+       [
+        0,
+        2,
+        2
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        32,
+        9,
+        0
+       ]
+      ],
+      [
+       [
+        0,
+        2,
+        13
+       ],
+       [
+        0,
+        0,
+        3
+       ],
+       [
+        0,
+        21,
+        0
+       ]
+      ],
+      [
+       [
+        1,
+        4,
+        8
+       ],
+       [
+        0,
+        0,
+        10
+       ],
+       [
+        1,
+        15,
+        4
+       ]
+      ]
+     ]
+    },
+    "context:high": {
+     "0": [
+      [
+       [
+        0,
+        1225,
+        7
+       ],
+       [
+        1,
+        5,
+        0
+       ],
+       [
+        2,
+        20,
+        0
+       ]
+      ],
+      [
+       [
+        356,
+        1718,
+        56
+       ],
+       [
+        120,
+        46,
+        3
+       ],
+       [
+        70,
+        11,
+        29
+       ]
+      ],
+      [
+       [
+        358,
+        1081,
+        186
+       ],
+       [
+        243,
+        238,
+        142
+       ],
+       [
+        323,
+        362,
+        223
+       ]
+      ]
+     ],
+     "1": [
+      [
+       [
+        0,
+        3,
+        0
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0,
+        0,
+        0
+       ]
+      ],
+      [
+       [
+        0,
+        1,
+        1
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0,
+        3,
+        0
+       ]
+      ],
+      [
+       [
+        5,
+        5,
+        17
+       ],
+       [
+        0,
+        0,
+        3
+       ],
+       [
+        3,
+        8,
+        4
+       ]
+      ]
+     ]
+    }
+   },
+   "disabled": false,
+   "population": {
+    "covering_known_cases": 62330,
+    "table_cases": 62330,
+    "covering_positive": 213,
+    "table_positive": 213,
+    "covering_comparison": 62117,
+    "table_comparison": 62117,
+    "conserved": true
+   },
+   "support": {
+    "pooled": {
+     "positive": 213,
+     "comparison": 62117
+    },
+    "raw_symbol_counts": {
+     "file": {
+      "empty": {
+       "positive": 66,
+       "comparison": 13602,
+       "total": 13668
+      },
+      "known": {
+       "positive": 49,
+       "comparison": 39523,
+       "total": 39572
+      },
+      "novel": {
+       "positive": 98,
+       "comparison": 8992,
+       "total": 9090
+      }
+     },
+     "network": {
+      "empty": {
+       "positive": 83,
+       "comparison": 57177,
+       "total": 57260
+      },
+      "known": {
+       "positive": 17,
+       "comparison": 2180,
+       "total": 2197
+      },
+      "novel": {
+       "positive": 113,
+       "comparison": 2760,
+       "total": 2873
+      }
+     },
+     "process": {
+      "empty": {
+       "positive": 53,
+       "comparison": 29553,
+       "total": 29606
+      },
+      "known": {
+       "positive": 88,
+       "comparison": 30393,
+       "total": 30481
+      },
+      "novel": {
+       "positive": 72,
+       "comparison": 2171,
+       "total": 2243
+      }
+     }
+    },
+    "merged": {
+     "file": false,
+     "network": false,
+     "process": false
+    },
+    "context:unscored": {
+     "positive": 33,
+     "comparison": 24055,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:low": {
+     "positive": 127,
+     "comparison": 31237,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:high": {
+     "positive": 53,
+     "comparison": 6825,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:alert": {
+     "positive": 0,
+     "comparison": 0,
+     "prior_supported": false,
+     "own_stratum": false
+    }
+   }
+  },
+  "file,network": {
+   "mask": [
+    "file",
+    "network"
+   ],
+   "alphabets": {
+    "file": [
+     "empty",
+     "known",
+     "novel"
+    ],
+    "network": [
+     "empty",
+     "known",
+     "novel"
+    ]
+   },
+   "merged": {
+    "file": false,
+    "network": false
+   },
+   "marginals": {
+    "file": [
+     0.21928445371410235,
+     0.6348788705278358,
+     0.14583667575806192
+    ],
+    "network": [
+     0.9186587518049093,
+     0.035247874217872614,
+     0.046093373977218036
+    ]
+   },
+   "strata": {
+    "pooled": {
+     "0": [
+      [
+       12823,
+       542,
+       237
+      ],
+      [
+       38436,
+       438,
+       649
+      ],
+      [
+       5918,
+       1200,
+       1874
+      ]
+     ],
+     "1": [
+      [
+       19,
+       0,
+       47
+      ],
+      [
+       19,
+       3,
+       27
+      ],
+      [
+       45,
+       14,
+       39
+      ]
+     ]
+    },
+    "context:unscored": {
+     "0": [
+      [
+       4702,
+       57,
+       115
+      ],
+      [
+       17341,
+       88,
+       69
+      ],
+      [
+       1412,
+       105,
+       166
+      ]
+     ],
+     "1": [
+      [
+       12,
+       0,
+       6
+      ],
+      [
+       2,
+       0,
+       3
+      ],
+      [
+       5,
+       1,
+       4
+      ]
+     ]
+    },
+    "context:low": {
+     "0": [
+      [
+       6889,
+       479,
+       100
+      ],
+      [
+       18965,
+       181,
+       470
+      ],
+      [
+       2881,
+       472,
+       800
+      ]
+     ],
+     "1": [
+      [
+       4,
+       0,
+       41
+      ],
+      [
+       15,
+       3,
+       21
+      ],
+      [
+       13,
+       10,
+       20
+      ]
+     ]
+    },
+    "context:high": {
+     "0": [
+      [
+       1232,
+       6,
+       22
+      ],
+      [
+       2130,
+       169,
+       110
+      ],
+      [
+       1625,
+       623,
+       908
+      ]
+     ],
+     "1": [
+      [
+       3,
+       0,
+       0
+      ],
+      [
+       2,
+       0,
+       3
+      ],
+      [
+       27,
+       3,
+       15
+      ]
+     ]
+    }
+   },
+   "disabled": false,
+   "population": {
+    "covering_known_cases": 62330,
+    "table_cases": 62330,
+    "covering_positive": 213,
+    "table_positive": 213,
+    "covering_comparison": 62117,
+    "table_comparison": 62117,
+    "conserved": true
+   },
+   "support": {
+    "pooled": {
+     "positive": 213,
+     "comparison": 62117
+    },
+    "raw_symbol_counts": {
+     "file": {
+      "empty": {
+       "positive": 66,
+       "comparison": 13602,
+       "total": 13668
+      },
+      "known": {
+       "positive": 49,
+       "comparison": 39523,
+       "total": 39572
+      },
+      "novel": {
+       "positive": 98,
+       "comparison": 8992,
+       "total": 9090
+      }
+     },
+     "network": {
+      "empty": {
+       "positive": 83,
+       "comparison": 57177,
+       "total": 57260
+      },
+      "known": {
+       "positive": 17,
+       "comparison": 2180,
+       "total": 2197
+      },
+      "novel": {
+       "positive": 113,
+       "comparison": 2760,
+       "total": 2873
+      }
+     }
+    },
+    "merged": {
+     "file": false,
+     "network": false
+    },
+    "context:unscored": {
+     "positive": 33,
+     "comparison": 24055,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:low": {
+     "positive": 127,
+     "comparison": 31237,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:high": {
+     "positive": 53,
+     "comparison": 6825,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:alert": {
+     "positive": 0,
+     "comparison": 0,
+     "prior_supported": false,
+     "own_stratum": false
+    }
+   }
+  }
+ },
+ "tau": 10000,
+ "context_map": {
+  "alert": "high"
+ }
+}

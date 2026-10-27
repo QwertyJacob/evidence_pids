@@ -1,0 +1,14 @@
+{
+ "generated": "2026-10-27T08:26:22.690008+00:00",
+ "script": "scripts/minutes.py",
+ "m_minutes": {
+  "10": "expert estimate of tier 1 assessment time (Kersten et al. 2023); lower end of Li et al. 2026",
+  "20": "assumed by Hassan et al. 2019 and Sharif et al. 2024; geometric centre of 10 to 40",
+  "40": "upper end quoted by Hassan et al. 2019, Sharif et al. 2024 and Kim et al. 2025"
+ },
+ "rows": 19110,
+ "net_equals_value_minus_price_max_abs_difference": 1.920001579946984e-08,
+ "tolerance": 1e-06,
+ "tolerance_reason": "inputs are CSV values with 10 significant digits, times m up to 40",
+ "passed": true
+}

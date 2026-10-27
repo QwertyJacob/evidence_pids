@@ -1,0 +1,1346 @@
+{
+ "generated": "2026-10-27T08:25:47.040746+00:00",
+ "script": "scripts/assumption_check.py",
+ "rows": 216,
+ "comparisons": [
+  {
+   "set": "1",
+   "cls": "attack",
+   "intervals disjoint": 0,
+   "intervals overlap": 18,
+   "no windows": 9
+  },
+  {
+   "set": "1",
+   "cls": "benign",
+   "intervals disjoint": 9,
+   "intervals overlap": 18,
+   "no windows": 0
+  },
+  {
+   "set": "10",
+   "cls": "attack",
+   "intervals disjoint": 0,
+   "intervals overlap": 27,
+   "no windows": 0
+  },
+  {
+   "set": "10",
+   "cls": "benign",
+   "intervals disjoint": 24,
+   "intervals overlap": 3,
+   "no windows": 0
+  },
+  {
+   "set": "100",
+   "cls": "attack",
+   "intervals disjoint": 0,
+   "intervals overlap": 27,
+   "no windows": 0
+  },
+  {
+   "set": "100",
+   "cls": "benign",
+   "intervals disjoint": 24,
+   "intervals overlap": 3,
+   "no windows": 0
+  },
+  {
+   "set": "3",
+   "cls": "attack",
+   "intervals disjoint": 1,
+   "intervals overlap": 17,
+   "no windows": 9
+  },
+  {
+   "set": "3",
+   "cls": "benign",
+   "intervals disjoint": 20,
+   "intervals overlap": 7,
+   "no windows": 0
+  },
+  {
+   "set": "30",
+   "cls": "attack",
+   "intervals disjoint": 0,
+   "intervals overlap": 27,
+   "no windows": 0
+  },
+  {
+   "set": "30",
+   "cls": "benign",
+   "intervals disjoint": 26,
+   "intervals overlap": 1,
+   "no windows": 0
+  },
+  {
+   "set": "alert",
+   "cls": "attack",
+   "intervals disjoint": 1,
+   "intervals overlap": 17,
+   "no windows": 9
+  },
+  {
+   "set": "alert",
+   "cls": "benign",
+   "intervals disjoint": 19,
+   "intervals overlap": 8,
+   "no windows": 0
+  }
+ ],
+ "disjoint": [
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "1",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 9,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "1",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 9,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "3",
+   "question": "file",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 27,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "3",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 27,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "3",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 27,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "3",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 27,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "3",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 27,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "3",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 27,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "10",
+   "question": "file",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 88,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "10",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 88,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "10",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 88,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "10",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 88,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "10",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 88,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "10",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 88,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "10",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 88,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "10",
+   "question": "process",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 88,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "30",
+   "question": "file",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 263,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "30",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 263,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "30",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 263,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "30",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 263,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "30",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 263,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "30",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 263,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "30",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 263,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "30",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 263,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "30",
+   "question": "process",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 263,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "100",
+   "question": "file",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 884,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "100",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 884,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "100",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 884,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "100",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 884,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "100",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 884,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "100",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 884,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "100",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 884,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "100",
+   "question": "process",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 884,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "alert",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 7,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "alert",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 7,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "alert",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 7,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "alert",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 7,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "alert",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 7,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "alert",
+   "question": "process",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 7,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "1",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 16,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "3",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 46,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "3",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 46,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "3",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 46,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "3",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 46,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "3",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 46,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "3",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 30,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "3",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 30,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "3",
+   "question": "process",
+   "answer": "novel",
+   "cls": "attack",
+   "windows": 3,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "10",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 160,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "10",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 160,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "10",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 160,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "10",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 160,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "10",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 160,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "10",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 106,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "10",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 106,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "30",
+   "question": "file",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 482,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "30",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 482,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "30",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 482,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "30",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 482,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "30",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 482,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "30",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 482,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "30",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 309,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "30",
+   "question": "process",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 309,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "100",
+   "question": "file",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 1537,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "100",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 1537,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "100",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 1537,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "100",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 1537,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "100",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 1537,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "100",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 1537,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "100",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 947,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "100",
+   "question": "process",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 947,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "alert",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 111,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "alert",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 111,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "alert",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 111,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "alert",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 111,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "alert",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 110,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "alert",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 110,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "1",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 17,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "1",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 17,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "1",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 17,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "1",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 17,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "1",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 11,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "1",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 11,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "3",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 49,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "3",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 49,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "3",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 49,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "3",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 49,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "3",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 49,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "3",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 33,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "3",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 33,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "10",
+   "question": "file",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 168,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "10",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 168,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "10",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 168,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "10",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 168,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "10",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 168,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "10",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 168,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "10",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 114,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "10",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 114,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "10",
+   "question": "process",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 114,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "30",
+   "question": "file",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 511,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "30",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 511,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "30",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 511,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "30",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 511,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "30",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 511,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "30",
+   "question": "network",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 511,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "30",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 338,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "30",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 338,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "30",
+   "question": "process",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 338,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "100",
+   "question": "file",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 1639,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "100",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 1639,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "100",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 1639,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "100",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 1639,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "100",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 1639,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "100",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 1049,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "100",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 1049,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "100",
+   "question": "process",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 1049,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "alert",
+   "question": "file",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 112,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "alert",
+   "question": "file",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 112,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "alert",
+   "question": "file",
+   "answer": "novel",
+   "cls": "benign",
+   "windows": 112,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "alert",
+   "question": "network",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 112,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "alert",
+   "question": "network",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 112,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "alert",
+   "question": "process",
+   "answer": "empty",
+   "cls": "attack",
+   "windows": 6,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "alert",
+   "question": "process",
+   "answer": "empty",
+   "cls": "benign",
+   "windows": 111,
+   "status": "intervals disjoint"
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "alert",
+   "question": "process",
+   "answer": "known",
+   "cls": "benign",
+   "windows": 111,
+   "status": "intervals disjoint"
+  }
+ ],
+ "alert_against_all_windows": [
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "cls": "attack",
+   "intervals disjoint": 1,
+   "intervals overlap": 8,
+   "no windows": 0
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "cls": "benign",
+   "intervals disjoint": 7,
+   "intervals overlap": 2,
+   "no windows": 0
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "cls": "attack",
+   "intervals disjoint": 0,
+   "intervals overlap": 0,
+   "no windows": 9
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "cls": "benign",
+   "intervals disjoint": 6,
+   "intervals overlap": 3,
+   "no windows": 0
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "cls": "attack",
+   "intervals disjoint": 0,
+   "intervals overlap": 9,
+   "no windows": 0
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "cls": "benign",
+   "intervals disjoint": 7,
+   "intervals overlap": 2,
+   "no windows": 0
+  }
+ ],
+ "attack_windows_in_source_alarms": [
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "1",
+   "attack_windows": 1
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "10",
+   "attack_windows": 12
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "100",
+   "attack_windows": 20
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "3",
+   "attack_windows": 5
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "30",
+   "attack_windows": 16
+  },
+  {
+   "fold": "velox_holdout_ATLASv2",
+   "set": "alert",
+   "attack_windows": 9
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "1",
+   "attack_windows": 0
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "10",
+   "attack_windows": 2
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "100",
+   "attack_windows": 13
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "3",
+   "attack_windows": 0
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "30",
+   "attack_windows": 7
+  },
+  {
+   "fold": "velox_holdout_DARPA_TC",
+   "set": "alert",
+   "attack_windows": 0
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "1",
+   "attack_windows": 1
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "10",
+   "attack_windows": 10
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "100",
+   "attack_windows": 25
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "3",
+   "attack_windows": 5
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "30",
+   "attack_windows": 15
+  },
+  {
+   "fold": "velox_holdout_OpTC",
+   "set": "alert",
+   "attack_windows": 9
+  }
+ ],
+ "note": "Exploratory; Wilson 95% intervals; few attack windows in source alarms make intervals wide."
+}

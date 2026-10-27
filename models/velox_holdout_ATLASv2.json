@@ -1,0 +1,883 @@
+{
+ "branch": "history_v1",
+ "fold": "velox_holdout_ATLASv2",
+ "context_symbols": [
+  "unscored",
+  "low",
+  "high",
+  "alert"
+ ],
+ "context_priors": {
+  "unscored": {
+   "positive": 40,
+   "comparison": 58575,
+   "supported": true,
+   "prior": 0.0006994557892761485,
+   "laplace": 0.0006994557892761485
+  },
+  "low": {
+   "positive": 155,
+   "comparison": 90076,
+   "supported": true,
+   "prior": 0.00172885751332661,
+   "laplace": 0.00172885751332661
+  },
+  "high": {
+   "positive": 45,
+   "comparison": 12625,
+   "supported": true,
+   "prior": 0.003630050505050505,
+   "laplace": 0.003630050505050505
+  },
+  "alert": {
+   "positive": 9,
+   "comparison": 112,
+   "supported": true,
+   "prior": 0.08130081300813008,
+   "laplace": 0.08130081300813008
+  }
+ },
+ "global_prior": 0.0015466564381120893,
+ "masks": {
+  "file,network,process": {
+   "mask": [
+    "file",
+    "network",
+    "process"
+   ],
+   "alphabets": {
+    "file": [
+     "empty",
+     "known",
+     "novel"
+    ],
+    "network": [
+     "empty",
+     "known",
+     "novel"
+    ],
+    "process": [
+     "empty",
+     "known",
+     "novel"
+    ]
+   },
+   "merged": {
+    "file": false,
+    "network": false,
+    "process": false
+   },
+   "marginals": {
+    "file": [
+     0.24704818812219564,
+     0.5831743966838282,
+     0.1697774151939762
+    ],
+    "network": [
+     0.8107202310736767,
+     0.14228229353853616,
+     0.04699747538778705
+    ],
+    "process": [
+     0.5083731134311574,
+     0.4735907923313526,
+     0.01803609423748994
+    ]
+   },
+   "strata": {
+    "pooled": {
+     "0": [
+      [
+       [
+        0,
+        19273,
+        227
+       ],
+       [
+        2083,
+        414,
+        0
+       ],
+       [
+        122,
+        215,
+        0
+       ]
+      ],
+      [
+       [
+        29011,
+        16111,
+        346
+       ],
+       [
+        4944,
+        1243,
+        21
+       ],
+       [
+        666,
+        387,
+        106
+       ]
+      ],
+      [
+       [
+        5384,
+        2719,
+        403
+       ],
+       [
+        2141,
+        1800,
+        241
+       ],
+       [
+        1676,
+        730,
+        229
+       ]
+      ]
+     ],
+     "1": [
+      [
+       [
+        0,
+        11,
+        0
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        55,
+        9,
+        0
+       ]
+      ],
+      [
+       [
+        2,
+        6,
+        15
+       ],
+       [
+        0,
+        0,
+        3
+       ],
+       [
+        10,
+        27,
+        0
+       ]
+      ],
+      [
+       [
+        7,
+        0,
+        23
+       ],
+       [
+        2,
+        0,
+        14
+       ],
+       [
+        10,
+        13,
+        8
+       ]
+      ]
+     ]
+    },
+    "context:unscored": {
+     "0": [
+      [
+       [
+        0,
+        6469,
+        14
+       ],
+       [
+        481,
+        103,
+        0
+       ],
+       [
+        12,
+        86,
+        0
+       ]
+      ],
+      [
+       [
+        4557,
+        4611,
+        30
+       ],
+       [
+        1843,
+        352,
+        1
+       ],
+       [
+        226,
+        28,
+        0
+       ]
+      ],
+      [
+       [
+        1831,
+        506,
+        27
+       ],
+       [
+        642,
+        316,
+        4
+       ],
+       [
+        622,
+        49,
+        1
+       ]
+      ]
+     ],
+     "1": [
+      [
+       [
+        0,
+        6,
+        0
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        8,
+        0,
+        0
+       ]
+      ],
+      [
+       [
+        0,
+        1,
+        1
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0,
+        3,
+        0
+       ]
+      ],
+      [
+       [
+        6,
+        0,
+        0
+       ],
+       [
+        0,
+        0,
+        1
+       ],
+       [
+        2,
+        1,
+        0
+       ]
+      ]
+     ]
+    },
+    "context:low": {
+     "0": [
+      [
+       [
+        0,
+        11574,
+        206
+       ],
+       [
+        1601,
+        306,
+        0
+       ],
+       [
+        110,
+        109,
+        0
+       ]
+      ],
+      [
+       [
+        23618,
+        8763,
+        257
+       ],
+       [
+        2938,
+        519,
+        17
+       ],
+       [
+        407,
+        348,
+        77
+       ]
+      ],
+      [
+       [
+        2446,
+        1255,
+        280
+       ],
+       [
+        756,
+        973,
+        94
+       ],
+       [
+        763,
+        425,
+        51
+       ]
+      ]
+     ],
+     "1": [
+      [
+       [
+        0,
+        2,
+        0
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        47,
+        9,
+        0
+       ]
+      ],
+      [
+       [
+        2,
+        4,
+        13
+       ],
+       [
+        0,
+        0,
+        3
+       ],
+       [
+        10,
+        21,
+        0
+       ]
+      ],
+      [
+       [
+        0,
+        0,
+        6
+       ],
+       [
+        0,
+        0,
+        10
+       ],
+       [
+        8,
+        11,
+        4
+       ]
+      ]
+     ]
+    },
+    "context:high": {
+     "0": [
+      [
+       [
+        0,
+        1230,
+        7
+       ],
+       [
+        1,
+        5,
+        0
+       ],
+       [
+        0,
+        20,
+        0
+       ]
+      ],
+      [
+       [
+        836,
+        2737,
+        59
+       ],
+       [
+        160,
+        369,
+        3
+       ],
+       [
+        33,
+        11,
+        29
+       ]
+      ],
+      [
+       [
+        1105,
+        958,
+        96
+       ],
+       [
+        647,
+        507,
+        143
+       ],
+       [
+        291,
+        256,
+        174
+       ]
+      ]
+     ],
+     "1": [
+      [
+       [
+        0,
+        3,
+        0
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0,
+        0,
+        0
+       ]
+      ],
+      [
+       [
+        0,
+        1,
+        1
+       ],
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0,
+        3,
+        0
+       ]
+      ],
+      [
+       [
+        0,
+        0,
+        17
+       ],
+       [
+        0,
+        0,
+        3
+       ],
+       [
+        0,
+        1,
+        1
+       ]
+      ]
+     ]
+    }
+   },
+   "disabled": false,
+   "population": {
+    "covering_known_cases": 90707,
+    "table_cases": 90707,
+    "covering_positive": 215,
+    "table_positive": 215,
+    "covering_comparison": 90492,
+    "table_comparison": 90492,
+    "conserved": true
+   },
+   "support": {
+    "pooled": {
+     "positive": 215,
+     "comparison": 90492
+    },
+    "raw_symbol_counts": {
+     "file": {
+      "empty": {
+       "positive": 75,
+       "comparison": 22334,
+       "total": 22409
+      },
+      "known": {
+       "positive": 63,
+       "comparison": 52835,
+       "total": 52898
+      },
+      "novel": {
+       "positive": 77,
+       "comparison": 15323,
+       "total": 15400
+      }
+     },
+     "network": {
+      "empty": {
+       "positive": 64,
+       "comparison": 73474,
+       "total": 73538
+      },
+      "known": {
+       "positive": 19,
+       "comparison": 12887,
+       "total": 12906
+      },
+      "novel": {
+       "positive": 132,
+       "comparison": 4131,
+       "total": 4263
+      }
+     },
+     "process": {
+      "empty": {
+       "positive": 86,
+       "comparison": 46027,
+       "total": 46113
+      },
+      "known": {
+       "positive": 66,
+       "comparison": 42892,
+       "total": 42958
+      },
+      "novel": {
+       "positive": 63,
+       "comparison": 1573,
+       "total": 1636
+      }
+     }
+    },
+    "merged": {
+     "file": false,
+     "network": false,
+     "process": false
+    },
+    "context:unscored": {
+     "positive": 29,
+     "comparison": 22811,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:low": {
+     "positive": 150,
+     "comparison": 57893,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:high": {
+     "positive": 30,
+     "comparison": 9677,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:alert": {
+     "positive": 6,
+     "comparison": 111,
+     "prior_supported": true,
+     "own_stratum": false
+    }
+   }
+  },
+  "file,network": {
+   "mask": [
+    "file",
+    "network"
+   ],
+   "alphabets": {
+    "file": [
+     "empty",
+     "known",
+     "novel"
+    ],
+    "network": [
+     "empty",
+     "known",
+     "novel"
+    ]
+   },
+   "merged": {
+    "file": false,
+    "network": false
+   },
+   "marginals": {
+    "file": [
+     0.13940496297258673,
+     0.753484660071642,
+     0.10711037695577126
+    ],
+    "network": [
+     0.8327610633703917,
+     0.12464967798214517,
+     0.042589258647463143
+    ]
+   },
+   "strata": {
+    "pooled": {
+     "0": [
+      [
+       19500,
+       2531,
+       427
+      ],
+      [
+       105578,
+       12697,
+       3446
+      ],
+      [
+       9448,
+       4898,
+       2863
+      ]
+     ],
+     "1": [
+      [
+       11,
+       0,
+       64
+      ],
+      [
+       27,
+       6,
+       37
+      ],
+      [
+       41,
+       16,
+       47
+      ]
+     ]
+    },
+    "context:unscored": {
+     "0": [
+      [
+       6483,
+       589,
+       144
+      ],
+      [
+       40248,
+       5349,
+       1038
+      ],
+      [
+       2669,
+       1329,
+       726
+      ]
+     ],
+     "1": [
+      [
+       6,
+       0,
+       8
+      ],
+      [
+       4,
+       3,
+       3
+      ],
+      [
+       8,
+       1,
+       7
+      ]
+     ]
+    },
+    "context:low": {
+     "0": [
+      [
+       11780,
+       1908,
+       259
+      ],
+      [
+       59439,
+       6584,
+       2191
+      ],
+      [
+       4346,
+       2162,
+       1407
+      ]
+     ],
+     "1": [
+      [
+       2,
+       0,
+       56
+      ],
+      [
+       21,
+       3,
+       31
+      ],
+      [
+       7,
+       10,
+       25
+      ]
+     ]
+    },
+    "context:high": {
+     "0": [
+      [
+       1237,
+       34,
+       24
+      ],
+      [
+       5891,
+       758,
+       217
+      ],
+      [
+       2430,
+       1307,
+       727
+      ]
+     ],
+     "1": [
+      [
+       3,
+       0,
+       0
+      ],
+      [
+       2,
+       0,
+       3
+      ],
+      [
+       23,
+       3,
+       11
+      ]
+     ]
+    }
+   },
+   "disabled": false,
+   "population": {
+    "covering_known_cases": 161637,
+    "table_cases": 161637,
+    "covering_positive": 249,
+    "table_positive": 249,
+    "covering_comparison": 161388,
+    "table_comparison": 161388,
+    "conserved": true
+   },
+   "support": {
+    "pooled": {
+     "positive": 249,
+     "comparison": 161388
+    },
+    "raw_symbol_counts": {
+     "file": {
+      "empty": {
+       "positive": 75,
+       "comparison": 22458,
+       "total": 22533
+      },
+      "known": {
+       "positive": 70,
+       "comparison": 121721,
+       "total": 121791
+      },
+      "novel": {
+       "positive": 104,
+       "comparison": 17209,
+       "total": 17313
+      }
+     },
+     "network": {
+      "empty": {
+       "positive": 79,
+       "comparison": 134526,
+       "total": 134605
+      },
+      "known": {
+       "positive": 22,
+       "comparison": 20126,
+       "total": 20148
+      },
+      "novel": {
+       "positive": 148,
+       "comparison": 6736,
+       "total": 6884
+      }
+     }
+    },
+    "merged": {
+     "file": false,
+     "network": false
+    },
+    "context:unscored": {
+     "positive": 40,
+     "comparison": 58575,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:low": {
+     "positive": 155,
+     "comparison": 90076,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:high": {
+     "positive": 45,
+     "comparison": 12625,
+     "prior_supported": true,
+     "own_stratum": true
+    },
+    "context:alert": {
+     "positive": 9,
+     "comparison": 112,
+     "prior_supported": true,
+     "own_stratum": false
+    }
+   }
+  }
+ },
+ "tau": 10000,
+ "context_map": {}
+}
