@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supplementary material · Which Alarms Deserve Costly Evidence? A Decision Framework for Automated Triage, from Provenance Benchmarks to Deployment</title>
+<meta name="description" content="Supplementary material of the paper Which Alarms Deserve Costly Evidence? A Decision Framework for Automated Triage, from Provenance Benchmarks to Deployment: complete tables and figures of the replay, sensitivity analyses and derivations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+window.MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']]}, chtml: {scale: 0.95}};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+<style>
+:root {
+  --bg: #fbfbf9; --fg: #1c1c1e; --muted: #5d5d63; --rule: #deded9; --accent: #1d5c96;
+  --head: #efefea; --stripe: #f6f6f2; --hover: #eaf1f8; --plate: #ffffff;
+  --serif: "Source Serif 4", Charter, "Iowan Old Style", Georgia, serif;
+  --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #151517; --fg: #e6e6e3; --muted: #a2a2a8; --rule: #34343a; --accent: #84b6e8;
+          --head: #222226; --stripe: #1b1b1e; --hover: #1f2a36; --plate: #ffffff; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.62 var(--serif); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 48px; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+nav.toc { position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto; padding: 40px 0 24px; font: 14px/1.45 var(--sans); }
+nav.toc h2 { font: 600 12px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+nav.toc ul { list-style: none; margin: 0; padding: 0; }
+nav.toc li { margin: 0 0 6px; }
+nav.toc li.sub { padding-left: 18px; font-size: 13px; }
+nav.toc a { color: var(--fg); display: flex; gap: 8px; }
+nav.toc a:hover { color: var(--accent); text-decoration: none; }
+nav.toc .num { color: var(--muted); min-width: 30px; }
+main { min-width: 0; max-width: 900px; padding: 40px 0 80px; }
+header.paper { border-bottom: 1px solid var(--rule); padding-bottom: 24px; margin-bottom: 8px; }
+.kicker { font: 600 13px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+h1 { font-size: 30px; line-height: 1.25; font-weight: 600; margin: 0 0 14px; }
+.authors { margin: 0; font-size: 17px; }
+.affiliation { margin: 2px 0 16px; color: var(--muted); font-size: 15px; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; font: 500 14px/1 var(--sans); }
+.links a { display: inline-block; padding: 8px 12px; border: 1px solid var(--rule); border-radius: 6px; color: var(--fg); }
+.links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.intro { color: var(--fg); }
+h2 { font-size: 24px; line-height: 1.3; font-weight: 600; margin: 56px 0 14px; padding-top: 8px; border-top: 1px solid var(--rule); }
+h3 { font-size: 19px; line-height: 1.35; font-weight: 600; margin: 36px 0 10px; }
+h2 .num, h3 .num { color: var(--accent); margin-right: 6px; }
+p { margin: 0 0 14px; }
+ul { padding-left: 22px; }
+li { margin-bottom: 6px; }
+code { font-size: 0.92em; }
+.equation { overflow-x: auto; overflow-y: hidden; margin: 6px 0 16px; }
+figure { margin: 28px 0 32px; }
+figure.figure img { display: block; width: 100%; height: auto; background: var(--plate); border: 1px solid var(--rule); border-radius: 6px; padding: 8px; }
+figcaption { font-size: 15px; line-height: 1.5; color: var(--fg); margin: 10px 0 0; }
+figure.table figcaption { margin: 0 0 10px; }
+.tag { font-weight: 600; }
+.note { font-size: 14px; line-height: 1.5; color: var(--muted); margin: 10px 0 0; }
+.scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 6px; }
+table { border-collapse: collapse; width: 100%; font: 13.5px/1.4 var(--sans); font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+td { white-space: nowrap; }
+th { background: var(--head); font-weight: 600; position: sticky; top: 0; }
+td.r, th.r { text-align: right; }
+td.c, th.c { text-align: center; }
+tbody tr:nth-child(even) { background: var(--stripe); }
+tbody tr:hover { background: var(--hover); }
+tbody tr:last-child td { border-bottom: 0; }
+tr.ruled td { border-top: 2px solid var(--rule); }
+details > summary { cursor: pointer; font: 500 14px/1 var(--sans); color: var(--accent); padding: 10px 0; }
+details[open] > summary { margin-bottom: 6px; }
+details .scroll { max-height: 75vh; overflow: auto; }
+.references ol { padding-left: 34px; font-size: 15px; line-height: 1.5; }
+.references li { margin-bottom: 8px; word-break: break-word; }
+footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); font: 13px/1.5 var(--sans); }
+@media (max-width: 980px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0 16px; }
+  nav.toc { position: static; max-height: none; padding: 24px 0 0; border-bottom: 1px solid var(--rule); }
+  main { padding-top: 24px; }
+  h1 { font-size: 25px; }
+  body { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+<h2>Contents</h2>
+<ul>
+<li class="top"><a href="#supp-starts"><span class="num">S1</span> Queues, starts and category priors</a></li>
+<li class="top"><a href="#supp-model"><span class="num">S2</span> The fitted answer model</a></li>
+<li class="top"><a href="#sec-realistic-results"><span class="num">S3</span> How realistic the example is</a></li>
+<li class="top"><a href="#app-sensitivity"><span class="num">S4</span> Sensitivity of the results</a></li>
+<li class="top"><a href="#app-sample-size"><span class="num">S5</span> How many attacks tell two criteria apart</a></li>
+<li class="top"><a href="#supp-results"><span class="num">S6</span> Complete results of the replay</a></li>
+<li class="sub"><a href="#supp-when"><span class="num">S6.1</span> When a question is worth asking</a></li>
+<li class="sub"><a href="#supp-which"><span class="num">S6.2</span> Where the criteria can differ</a></li>
+<li class="sub"><a href="#supp-budget"><span class="num">S6.3</span> How many questions a day</a></li>
+<li class="sub"><a href="#supp-value"><span class="num">S6.4</span> What a question is worth</a></li>
+<li class="top"><a href="#references"><span class="num"></span> References</a></li>
+</ul>
+</nav>
+<main>
+<header class="paper">
+<p class="kicker">Supplementary material</p>
+<h1>Which Alarms Deserve Costly Evidence? A Decision Framework for Automated Triage, from Provenance Benchmarks to Deployment</h1>
+<p class="authors">Jesús F. Cevallos-Moreno, Alessandra Rizzardi, Sabrina Sicari and Alberto Coen-Porisini</p>
+<p class="affiliation">Università degli Studi dell&#x27;Insubria, Varese, Italy</p>
+<ul class="links">
+<li><a href="https://github.com/QwertyJacob/evidence_pids">Code and data</a></li>
+<li><a href="https://github.com/QwertyJacob/evidence_pids/blob/main/REPRODUCE.md">How to reproduce</a></li>
+</ul>
+</header>
+<section class="intro">
+<p>This page completes the appendix of the paper. It gives the queues and starts of every tested group, the category priors, the fitted answer model, a discussion of how realistic the worked example is, sensitivity analyses, the number of attacks needed to rank two criteria, the shared daily budget analysis, and the complete results of the replay. Items numbered with an S (&sect;&nbsp;S1, Table&nbsp;S1, Figure&nbsp;S1, equation (S1)) belong to this page; every other section, table, figure, equation and reference number refers to the paper. Every value can be regenerated with the code and data of the repository.</p>
+</section>
+<h2 id="supp-starts"><span class="num">S1</span> Queues, starts and category priors</h2>
+<p>Table <a href="#tab-queue-priors">S1</a> lists, for each tested group and queue, the counts of the source queue behind the start (10) and the alarms of the tested queue, with their realised share of attack windows (§ 4.3).</p>
+<figure class="table" id="tab-queue-priors">
+<figcaption><span class="tag">Table S1.</span> Queues and starts, per tested group.</figcaption>
+<div class="scroll"><table>
+<thead><tr><th>Tested group</th><th>Queue</th><th class="c">Source attack windows</th><th class="c">Source alarms (labelled)</th><th class="c">Start</th><th class="c">Tested alarms</th><th class="c">Labelled</th><th class="c">Attack windows</th><th class="c">Realised share</th><th class="c">Distinct attacks</th></tr></thead>
+<tbody>
+<tr><td>DARPA TC</td><td>1 a day</td><td class="c">0</td><td class="c">9</td><td class="c">9.09%</td><td class="c">8</td><td class="c">8</td><td class="c">1</td><td class="c">12.5%</td><td class="c">1</td></tr>
+<tr><td>DARPA TC</td><td>3 a day</td><td class="c">0</td><td class="c">27</td><td class="c">3.45%</td><td class="c">24</td><td class="c">24</td><td class="c">5</td><td class="c">20.8%</td><td class="c">2</td></tr>
+<tr><td>DARPA TC</td><td>10 a day</td><td class="c">2</td><td class="c">90</td><td class="c">3.26%</td><td class="c">80</td><td class="c">80</td><td class="c">10</td><td class="c">12.5%</td><td class="c">2</td></tr>
+<tr><td>DARPA TC</td><td>30 a day</td><td class="c">7</td><td class="c">270</td><td class="c">2.94%</td><td class="c">240</td><td class="c">240</td><td class="c">12</td><td class="c">5.0%</td><td class="c">3</td></tr>
+<tr><td>DARPA TC</td><td>100 a day</td><td class="c">13</td><td class="c">897</td><td class="c">1.56%</td><td class="c">800</td><td class="c">800</td><td class="c">16</td><td class="c">2.0%</td><td class="c">3</td></tr>
+<tr><td>DARPA TC</td><td>alert queue</td><td class="c">0</td><td class="c">7</td><td class="c">11.11%</td><td class="c">117</td><td class="c">117</td><td class="c">9</td><td class="c">7.7%</td><td class="c">3</td></tr>
+<tr><td>OpTC host 051</td><td>1 a day</td><td class="c">1</td><td class="c">17</td><td class="c">10.53%</td><td class="c">3</td><td class="c">3</td><td class="c">0</td><td class="c">0.0%</td><td class="c">0</td></tr>
+<tr><td>OpTC host 051</td><td>3 a day</td><td class="c">5</td><td class="c">51</td><td class="c">11.32%</td><td class="c">9</td><td class="c">9</td><td class="c">0</td><td class="c">0.0%</td><td class="c">0</td></tr>
+<tr><td>OpTC host 051</td><td>10 a day</td><td class="c">10</td><td class="c">170</td><td class="c">6.40%</td><td class="c">30</td><td class="c">30</td><td class="c">2</td><td class="c">6.7%</td><td class="c">1</td></tr>
+<tr><td>OpTC host 051</td><td>30 a day</td><td class="c">15</td><td class="c">497</td><td class="c">3.21%</td><td class="c">90</td><td class="c">90</td><td class="c">4</td><td class="c">4.4%</td><td class="c">1</td></tr>
+<tr><td>OpTC host 051</td><td>100 a day</td><td class="c">25</td><td class="c">1,562</td><td class="c">1.66%</td><td class="c">300</td><td class="c">297</td><td class="c">4</td><td class="c">1.3%</td><td class="c">1</td></tr>
+<tr><td>OpTC host 051</td><td>alert queue</td><td class="c">9</td><td class="c">120</td><td class="c">8.20%</td><td class="c">4</td><td class="c">4</td><td class="c">0</td><td class="c">0.0%</td><td class="c">0</td></tr>
+<tr><td>ATLASv2</td><td>1 a day</td><td class="c">1</td><td class="c">18</td><td class="c">10.00%</td><td class="c">2</td><td class="c">2</td><td class="c">0</td><td class="c">0.0%</td><td class="c">0</td></tr>
+<tr><td>ATLASv2</td><td>3 a day</td><td class="c">5</td><td class="c">54</td><td class="c">10.71%</td><td class="c">6</td><td class="c">6</td><td class="c">0</td><td class="c">0.0%</td><td class="c">0</td></tr>
+<tr><td>ATLASv2</td><td>10 a day</td><td class="c">12</td><td class="c">180</td><td class="c">7.14%</td><td class="c">20</td><td class="c">20</td><td class="c">0</td><td class="c">0.0%</td><td class="c">0</td></tr>
+<tr><td>ATLASv2</td><td>30 a day</td><td class="c">16</td><td class="c">527</td><td class="c">3.21%</td><td class="c">60</td><td class="c">60</td><td class="c">3</td><td class="c">5.0%</td><td class="c">2</td></tr>
+<tr><td>ATLASv2</td><td>100 a day</td><td class="c">20</td><td class="c">1,659</td><td class="c">1.26%</td><td class="c">200</td><td class="c">200</td><td class="c">9</td><td class="c">4.5%</td><td class="c">2</td></tr>
+<tr><td>ATLASv2</td><td>alert queue</td><td class="c">9</td><td class="c">121</td><td class="c">8.13%</td><td class="c">3</td><td class="c">3</td><td class="c">0</td><td class="c">0.0%</td><td class="c">0</td></tr>
+</tbody></table></div>
+<p class="note">Source attack windows and source alarms: <span class="math inline">\(a_N\)</span> and <span class="math inline">\(n_N\)</span>, counted in the source queue, built by the same rule on the source collections, so that the start is <span class="math inline">\(p_N = (a_N + 1)/(n_N + 2)\)</span>; for example, 0 attack windows among 9 alarms give <span class="math inline">\(1/11 = 9.09\)</span> percent, exactly the threshold at <span class="math inline">\(r = 10\)</span>. Tested alarms: alarms of the tested group, with the labelled ones, the attack windows and the distinct attacks among them. Realised share: the fraction of labelled tested alarms that are attack windows, which an exact estimate of the queue’s attack frequency would match.</p>
+</figure>
+<p>Consider a window known only by its category of the detector score (§ 4.1). It starts at the <em>prior of its category</em> <span class="math inline">\(p_k\)</span> (17), estimated like the start of a queue (10), but over all labelled source windows of category <span class="math inline">\(k\)</span> rather than over the alarms of a queue. For example, in the model tested on OpTC host 051, 9 of the 120 labelled source alerts are attack windows, so <span class="math inline">\(p_{\texttt{alert}} = 10/122 = 8.2\)</span> percent, the same value as the start of its alert queue (Table <a href="#tab-queue-priors">S1</a>). Attack windows are far rarer among all windows of the other categories, so their priors are far smaller.</p>
+<p>A category with too few source windows takes the prior of another (§ A.5); Table <a href="#tab-answer-likelihood-ratios">S2</a> lists every prior.</p>
+<p>Figure <a href="#fig-starts-and-zones">S1</a> places every kind of case on the line of starting probabilities at <span class="math inline">\(r = 10\)</span>, where the threshold is 9.1 percent. Each question of each category of the detector score has its zone (§ 3.5), and the <em>zone of a category</em> is the union of the zones of its questions: the starting probabilities from which at least one answer to some question changes the decision. For windows of the <code>high</code> category, which make up most alarms, the zone runs from 2.7 to 13.5 percent in the DARPA TC model, from 2.0 to 15.8 percent in the OpTC model and from 0.94 to 13.8 percent in the ATLASv2 model.</p>
+<p><strong>Most category priors lie far below their zone.</strong> At its own prior, a window of category <code>unscored</code> or <code>low</code> starts between 0.06 and 0.41 percent, and a window of category <code>high</code> between 0.36 and 0.78 percent. Every one of these starts lies below the zone of its category. By the arithmetic of § 3.3, evidence would have to multiply their odds by 12.6 to 162 to escalate them, and for each of these categories in every model the strongest single answer falls short of the required factor by at least 2.2 times (Table <a href="#tab-answer-likelihood-ratios">S2</a>). Only the few windows that Velox itself flags start inside the zone: the alerts of OpTC host 051 and ATLASv2 start at 8.2 and 8.1 percent, just under the threshold, where any answer that multiplies the odds by 1.12 or 1.13 escalates them.</p>
+<p><strong>Alarm queues start near the threshold.</strong> The starts of the queues lie between 1.26 and 11.32 percent (Table <a href="#tab-queue-priors">S1</a>). For the realistic queues, of 1, 3, 10 and 30 alarms a day and the alert queue, the factor that evidence must supply lies between 0.78 and 3.3; a factor below 1 means that the queue starts above the threshold, so an answer can only change the decision by dividing the odds. For the queue of 100 alarms a day the factor is 5.9 to 7.8.</p>
+<figure class="figure" id="fig-starts-and-zones">
+<a href="figures/f2_starts.svg"><img src="figures/f2_starts.svg" alt="Figure S1" loading="lazy"></a>
+<figcaption><span class="tag">Figure S1.</span> Alarm starts and category priors at <span class="math inline">\(r = 10\)</span>, by tested group. Light band: starting probabilities where at least one answer can change the decision in some detector score category. Dark band: the same for the <code>high</code> category. Vertical line: the decision threshold of 9.1 percent. Circles: category priors (u, <code>unscored</code>; l, <code>low</code>; h, <code>high</code>; a, <code>alert</code>), filled when inside their own category’s zone. In DARPA TC, h and a coincide. Diamonds: queue starts (1, 3, 10, 30 and 100 alarms a day; A, alerts); nearby labels are joined. <em>How to read it:</em> a filled circle can cross the threshold after one answer. A queue mixes categories, so a diamond inside the light band does not mean every alarm can cross.</figcaption>
+</figure>
+<p>Figures <a href="#fig-starts-and-zones-r5">S2</a> and <a href="#fig-starts-and-zones-r20">S3</a> repeat Figure <a href="#fig-starts-and-zones">S1</a> at the other two cost ratios of the realistic region.</p>
+<figure class="figure" id="fig-starts-and-zones-r5">
+<a href="figures/f2_starts_r5.svg"><img src="figures/f2_starts_r5.svg" alt="Figure S2" loading="lazy"></a>
+<figcaption><span class="tag">Figure S2.</span> Figure <a href="#fig-starts-and-zones">S1</a> at <span class="math inline">\(r = 5\)</span>, where the threshold is 16.7 percent.</figcaption>
+</figure>
+<figure class="figure" id="fig-starts-and-zones-r20">
+<a href="figures/f2_starts_r20.svg"><img src="figures/f2_starts_r20.svg" alt="Figure S3" loading="lazy"></a>
+<figcaption><span class="tag">Figure S3.</span> Figure <a href="#fig-starts-and-zones">S1</a> at <span class="math inline">\(r = 20\)</span>, where the threshold is 4.8 percent.</figcaption>
+</figure>
+<h2 id="supp-model"><span class="num">S2</span> The fitted answer model</h2>
+<p>Table <a href="#tab-answer-likelihood-ratios">S2</a> gives, for each of the three models and each category of the detector score, the prior of the category, the prior and tables the category uses, and the fitted likelihood ratio of every single answer (§ 4.5, § A.5).</p>
+<figure class="table" id="tab-answer-likelihood-ratios">
+<figcaption><span class="tag">Table S2.</span> Fitted likelihood ratio <span class="math inline">\(L_1(e)/L_0(e)\)</span> of every single answer after smoothing, for each model, named after the group it is tested on, and each category of the detector score, with the prior of the category (17) and the prior and tables it uses (§ 4.5, § A.5).</figcaption>
+<details><summary>Show all 36 rows</summary>
+<div class="scroll"><table>
+<thead><tr><th>Model (tested group)</th><th>Category</th><th class="r">Prior</th><th>Prior and tables used</th><th>Question</th><th class="r">Empty</th><th class="r">Known</th><th class="r">Novel</th></tr></thead>
+<tbody>
+<tr><td>DARPA TC</td><td>unscored</td><td class="r">0.14%</td><td>own prior, own tables</td><td>file</td><td class="r">2.2</td><td class="r">0.42</td><td class="r">2.8</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">0.71</td><td class="r">1.8</td><td class="r">12</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">0.69</td><td class="r">1.1</td><td class="r">8.5</td></tr>
+<tr><td></td><td>low</td><td class="r">0.41%</td><td>own prior, own tables</td><td>file</td><td class="r">1.4</td><td class="r">0.61</td><td class="r">2.1</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">0.45</td><td class="r">2.4</td><td class="r">11</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">0.69</td><td class="r">0.87</td><td class="r">6.4</td></tr>
+<tr><td></td><td>high</td><td class="r">0.78%</td><td>own prior, own tables</td><td>file</td><td class="r">0.75</td><td class="r">0.8</td><td class="r">1.6</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">0.94</td><td class="r">0.64</td><td class="r">1.9</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">0.93</td><td class="r">0.78</td><td class="r">3.6</td></tr>
+<tr><td></td><td>alert</td><td class="r">0.78%</td><td>prior and tables of high</td><td>file</td><td class="r">0.75</td><td class="r">0.8</td><td class="r">1.6</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">0.94</td><td class="r">0.64</td><td class="r">1.9</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">0.93</td><td class="r">0.78</td><td class="r">3.6</td></tr>
+<tr><td>OpTC host 051</td><td>unscored</td><td class="r">0.06%</td><td>own prior, own tables</td><td>file</td><td class="r">2.3</td><td class="r">0.35</td><td class="r">3.1</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">0.92</td><td class="r">0.27</td><td class="r">5.4</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">0.76</td><td class="r">1.5</td><td class="r">15</td></tr>
+<tr><td></td><td>low</td><td class="r">0.07%</td><td>own prior, own tables</td><td>file</td><td class="r">2.2</td><td class="r">0.46</td><td class="r">3.3</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">0.4</td><td class="r">0.17</td><td class="r">23</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">0.87</td><td class="r">1</td><td class="r">13</td></tr>
+<tr><td></td><td>high</td><td class="r">0.54%</td><td>own prior, own tables</td><td>file</td><td class="r">0.99</td><td class="r">0.78</td><td class="r">1.6</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">0.91</td><td class="r">0.53</td><td class="r">5</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">0.93</td><td class="r">1.1</td><td class="r">2.7</td></tr>
+<tr><td></td><td>alert</td><td class="r">8.20%</td><td>own prior, pooled tables</td><td>file</td><td class="r">1.8</td><td class="r">0.29</td><td class="r">4</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">0.54</td><td class="r">0.23</td><td class="r">16</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">0.74</td><td class="r">1.4</td><td class="r">15</td></tr>
+<tr><td>ATLASv2</td><td>unscored</td><td class="r">0.07%</td><td>own prior, own tables</td><td>file</td><td class="r">1.4</td><td class="r">0.56</td><td class="r">1.7</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">0.73</td><td class="r">0.43</td><td class="r">7.7</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">1.2</td><td class="r">0.78</td><td class="r">6.8</td></tr>
+<tr><td></td><td>low</td><td class="r">0.17%</td><td>own prior, own tables</td><td>file</td><td class="r">1.5</td><td class="r">0.61</td><td class="r">1.9</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">0.33</td><td class="r">0.75</td><td class="r">16</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">0.82</td><td class="r">0.79</td><td class="r">12</td></tr>
+<tr><td></td><td>high</td><td class="r">0.36%</td><td>own prior, own tables</td><td>file</td><td class="r">0.92</td><td class="r">0.74</td><td class="r">1.5</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">1</td><td class="r">0.73</td><td class="r">1.6</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">0.62</td><td class="r">0.68</td><td class="r">11</td></tr>
+<tr><td></td><td>alert</td><td class="r">8.13%</td><td>own prior, pooled tables</td><td>file</td><td class="r">1.4</td><td class="r">0.55</td><td class="r">2</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>network</td><td class="r">0.43</td><td class="r">0.66</td><td class="r">12</td></tr>
+<tr><td></td><td></td><td class="r"></td><td></td><td>process</td><td class="r">0.81</td><td class="r">0.68</td><td class="r">15</td></tr>
+</tbody></table></div>
+</details>
+<p class="note">The ratios are those of the three questions; alarms of CADETS E3, which lack the process question, use tables fitted on the file and network questions alone, not shown.</p>
+</figure>
+<p><strong>Why the tables were not refitted on alarms.</strong> The likelihoods <span class="math inline">\(L_1\)</span> and <span class="math inline">\(L_0\)</span> of (11) were kept from the tables of each category, for three reasons. First, the attack half cannot be fitted on alarms. The source queues of the realistic queues hold 0 to 16 attack windows each, and none in DARPA TC for the queues of one and three alarms a day and for the alerts, while each table has 27 cells and the model gives a category its own tables only from 20 attack windows (§ A.5); the source windows of category <code>high</code> hold 38 to 53 (Table A1). Only the benign half, where the difference lies, could be refitted on alarms, and a ratio of a refitted half to a half that was not refitted holds for neither set of windows. Second, the tables explain only part of the miscalibration: in the queue of three a day, the questions realised more than the model expected, as a start below the realised share produces (3.45 against 20.8 percent in DARPA TC), not as weaker answers do. Third, a refit adds no attack. The realistic queues would still hold 1 to 6 distinct attacks, against the hundreds to thousands needed to rank the criteria (§ 5.5), and new tables would be judged on the same few events.</p>
+<h2 id="sec-realistic-results"><span class="num">S3</span> How realistic the example is</h2>
+<p>The realistic region was fixed from published figures alone (§ 4.8), and each of its axes rests on evidence of a different strength.</p>
+<ul>
+<li><p><strong>Alarm volume.</strong> The only published figure per monitored host is that of Dong et al. <span>[</span><a href="#ref-dong2023">6</a><span>]</span>: practitioners accept 0.001 to 0.1 alarms per host per day. Every queue of this study exceeds it, by a factor of at least 5 (one alarm a day on ATLASv2, whose two hosts share a queue). The queues, however, are inputs to automated triage. Their sizes follow manual review capacity only as a workload reference, and nothing in the replay requires an analyst to review every incoming alarm. The escalations set the later investigation workload, and the loss counts benign escalations as wasted analyst effort; downstream staffing and queueing delays lie outside the replay. Measured volumes per SOC range from hundreds of high priority alerts a day <span>[</span><a href="#ref-li2026">19</a><span>]</span> to more than ten thousand alerts a day left to analysts after automatic blocking <span>[</span><a href="#ref-yang2024">47</a><span>]</span>.</p></li>
+<li><p><strong>Minutes per alarm.</strong> The range of 10 to 40 minutes rests on one measurement in a user study <span>[</span><a href="#ref-li2026">19</a><span>]</span>, one estimate by experienced analysts <span>[</span><a href="#ref-kersten2023">20</a><span>]</span> and one industry figure quoted by three papers. It values the human effort wasted on a false escalation; automated evidence actions are charged separately.</p></li>
+<li><p><strong>Cost ratio.</strong> No study measures it. The region of 5 to 20 follows the only value used for alert triage <span>[</span><a href="#ref-chowdhury2026">27</a><span>]</span>, and the full sweep shows how the results move outside it; at 50 and 100, the short queues lose every admissible question.</p></li>
+<li><p><strong>Prices.</strong> The region comes from automated actions, LLM agents and sandboxes (Table 2). A question that costs a full investigation by a second analyst, a price near one false escalation, lies outside it; at that price no question is admissible on any queue.</p></li>
+</ul>
+<h2 id="app-sensitivity"><span class="num">S4</span> Sensitivity of the results</h2>
+<p><strong>Order of visiting.</strong> Visiting the alarms of a day in order of their expected decision value, instead of their score, changes the outcomes only in the queue of 100 alarms a day, in 420 of the 112,896 replayed combinations of collection, queue, cost ratio, price, budget and criterion.</p>
+<p><strong>Smoothing strength.</strong> Stronger smoothing of the model (<span class="math inline">\(\tau = 10^5\)</span> and <span class="math inline">\(10^6\)</span>) leaves fewer admissible questions, 24 and 7 instead of 90 in the queue of ten a day, and losses close to those of asking nothing. Weaker smoothing (<span class="math inline">\(\tau = 10^2\)</span> and <span class="math inline">\(10^3\)</span>) leaves most results in place, but not all; the next paragraph reports how the value of a question moves.</p>
+<p><strong>Value per question under other starts and smoothing.</strong> Table <a href="#tab-value-sensitivity">S3</a> repeats the values at <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.01\)</span> under the two other estimates of the starts of § A.2 and under weaker smoothing. With half a window added to each class, the starts fall, and the DARPA TC queue of one alarm a day and the DARPA TC alert queue start below the threshold. The value in the queue of three a day falls from 1.3 to 0.4, the value in the queue of ten a day turns negative (−0.14), and the value of the alerts rises (0.28 under expected decision value). With starts from the source test splits only, the starts rise, and the values of the queues of three and ten a day become 0.84 and 0.46. With weaker smoothing most values stay close, but the queue of thirty a day turns positive (0.048, with 270 questions instead of 150), and information gain among the alerts rises from 0.016 to 0.58. Over the realistic region, the sign of the value changes in 35 of 198 combinations with half a window per class, in 46 of 174 with starts from the test splits only, and in 41 and 38 of 198 with <span class="math inline">\(\tau = 10^2\)</span> and <span class="math inline">\(10^3\)</span>, mostly where the value lies close to zero.</p>
+<figure class="table" id="tab-value-sensitivity">
+<figcaption><span class="tag">Table S3.</span> Value per question at <span class="math inline">\(r = 10\)</span>, <span class="math inline">\(c = 0.01\)</span> and no budget limit under other estimates of the starts and weaker smoothing, with the number of questions in brackets.</figcaption>
+<div class="scroll"><table>
+<thead><tr><th>Queue</th><th>Criterion</th><th class="c">Default</th><th class="c">Half a window per class</th><th class="c">Source test splits only</th><th class="c"><span class="math inline">\(\tau = 10^2\)</span></th><th class="c"><span class="math inline">\(\tau = 10^3\)</span></th></tr></thead>
+<tbody>
+<tr><td>1 a day</td><td>EDV</td><td class="c">0.31 (13)</td><td class="c">0.89 (9)</td><td class="c">0.33 (3)</td><td class="c">0.31 (13)</td><td class="c">0.31 (13)</td></tr>
+<tr><td></td><td>IG</td><td class="c">0.62 (13)</td><td class="c">1 (9)</td><td class="c">0.33 (3)</td><td class="c">0.69 (13)</td><td class="c">0.69 (13)</td></tr>
+<tr><td></td><td>random</td><td class="c">0.55 (13)</td><td class="c">0.92 (9)</td><td class="c">0.33 (3)</td><td class="c">0.6 (13)</td><td class="c">0.6 (13)</td></tr>
+<tr><td>3 a day</td><td>EDV</td><td class="c">1.3 (27)</td><td class="c">0.4 (15)</td><td class="c">0.84 (31)</td><td class="c">1.3 (27)</td><td class="c">1.3 (27)</td></tr>
+<tr><td></td><td>IG</td><td class="c">1.4 (27)</td><td class="c">0.47 (15)</td><td class="c">0.84 (31)</td><td class="c">1.4 (27)</td><td class="c">1.4 (27)</td></tr>
+<tr><td></td><td>random</td><td class="c">1.3 (27)</td><td class="c">0.32 (15)</td><td class="c">0.84 (31)</td><td class="c">1.3 (27)</td><td class="c">1.3 (27)</td></tr>
+<tr><td>10 a day</td><td>EDV</td><td class="c">0.26 (90)</td><td class="c">-0.14 (50)</td><td class="c">0.46 (130)</td><td class="c">0.26 (90)</td><td class="c">0.26 (90)</td></tr>
+<tr><td></td><td>IG</td><td class="c">0.26 (90)</td><td class="c">-0.14 (50)</td><td class="c">0.47 (130)</td><td class="c">0.26 (90)</td><td class="c">0.26 (90)</td></tr>
+<tr><td></td><td>random</td><td class="c">0.19 (90)</td><td class="c">-0.24 (50)</td><td class="c">0.4 (130)</td><td class="c">0.19 (90)</td><td class="c">0.19 (90)</td></tr>
+<tr><td>30 a day</td><td>EDV</td><td class="c">-0.11 (150)</td><td class="c">-0.11 (150)</td><td class="c">0.048 (270)</td><td class="c">0.048 (270)</td><td class="c">0.048 (270)</td></tr>
+<tr><td></td><td>IG</td><td class="c">-0.11 (150)</td><td class="c">-0.11 (150)</td><td class="c">0.048 (270)</td><td class="c">0.048 (270)</td><td class="c">0.048 (270)</td></tr>
+<tr><td></td><td>random</td><td class="c">-0.11 (150)</td><td class="c">-0.11 (150)</td><td class="c">0.05 (270)</td><td class="c">0.051 (270)</td><td class="c">0.051 (270)</td></tr>
+<tr><td>alert queue</td><td>EDV</td><td class="c">0.0081 (124)</td><td class="c">0.28 (124)</td><td class="c">0.0081 (124)</td><td class="c">0 (124)</td><td class="c">0 (124)</td></tr>
+<tr><td></td><td>IG</td><td class="c">0.016 (124)</td><td class="c">0.44 (124)</td><td class="c">0.016 (124)</td><td class="c">0.58 (124)</td><td class="c">0.58 (124)</td></tr>
+<tr><td></td><td>random</td><td class="c">0.19 (124)</td><td class="c">0.11 (124)</td><td class="c">0.19 (124)</td><td class="c">0.36 (124)</td><td class="c">0.36 (124)</td></tr>
+<tr class="ruled"><td>Sign differs from default</td><td></td><td class="c">198 cells with questions</td><td class="c">35 of 198</td><td class="c">46 of 174</td><td class="c">41 of 198</td><td class="c">38 of 198</td></tr>
+<tr><td>Only one of the two asks</td><td></td><td class="c"></td><td class="c">3</td><td class="c">33</td><td class="c">12</td><td class="c">6</td></tr>
+</tbody></table></div>
+<p class="note">Default: one window added to each class (§ 4.3). Half a window per class: <span class="math inline">\(p_N = (a_N + 0.5)/(n_N + 1)\)</span>. Source test splits only: source queues built without validation days. <span class="math inline">\(\tau = 10^2\)</span> and <span class="math inline">\(10^3\)</span>: weaker smoothing (§ 4.5). Last two rows: over the realistic combinations of queue, cost ratio, price and criterion, how often the sign of the value differs from the default where both ask questions, and how often only one of the two asks.</p>
+</figure>
+<p>Table <a href="#tab-queue-prior-sensitivity">S4</a> gives the start of every tested queue under the three estimates of the starts.</p>
+<figure class="table" id="tab-queue-prior-sensitivity">
+<figcaption><span class="tag">Table S4.</span> Starts of every tested queue under the three estimates of § A.2</figcaption>
+<div class="scroll"><table>
+<thead><tr><th>Tested group</th><th>Queue</th><th class="r">Start (default)</th><th class="r">Half a window per class</th><th class="r">Source test splits only</th></tr></thead>
+<tbody>
+<tr><td>DARPA TC</td><td>1 a day</td><td class="r">9.09%</td><td class="r">5.00%</td><td class="r">14.29%</td></tr>
+<tr><td>DARPA TC</td><td>3 a day</td><td class="r">3.45%</td><td class="r">1.79%</td><td class="r">5.88%</td></tr>
+<tr><td>DARPA TC</td><td>10 a day</td><td class="r">3.26%</td><td class="r">2.75%</td><td class="r">5.77%</td></tr>
+<tr><td>DARPA TC</td><td>30 a day</td><td class="r">2.94%</td><td class="r">2.77%</td><td class="r">5.26%</td></tr>
+<tr><td>DARPA TC</td><td>100 a day</td><td class="r">1.56%</td><td class="r">1.50%</td><td class="r">2.81%</td></tr>
+<tr><td>DARPA TC</td><td>alert queue</td><td class="r">11.11%</td><td class="r">6.25%</td><td class="r">11.11%</td></tr>
+<tr><td>OpTC host 051</td><td>1 a day</td><td class="r">10.53%</td><td class="r">8.33%</td><td class="r">16.67%</td></tr>
+<tr><td>OpTC host 051</td><td>3 a day</td><td class="r">11.32%</td><td class="r">10.58%</td><td class="r">18.75%</td></tr>
+<tr><td>OpTC host 051</td><td>10 a day</td><td class="r">6.40%</td><td class="r">6.14%</td><td class="r">10.78%</td></tr>
+<tr><td>OpTC host 051</td><td>30 a day</td><td class="r">3.21%</td><td class="r">3.11%</td><td class="r">5.30%</td></tr>
+<tr><td>OpTC host 051</td><td>100 a day</td><td class="r">1.66%</td><td class="r">1.63%</td><td class="r">2.59%</td></tr>
+<tr><td>OpTC host 051</td><td>alert queue</td><td class="r">8.20%</td><td class="r">7.85%</td><td class="r">8.20%</td></tr>
+<tr><td>ATLASv2</td><td>1 a day</td><td class="r">10.00%</td><td class="r">7.89%</td><td class="r">15.38%</td></tr>
+<tr><td>ATLASv2</td><td>3 a day</td><td class="r">10.71%</td><td class="r">10.00%</td><td class="r">17.14%</td></tr>
+<tr><td>ATLASv2</td><td>10 a day</td><td class="r">7.14%</td><td class="r">6.91%</td><td class="r">11.61%</td></tr>
+<tr><td>ATLASv2</td><td>30 a day</td><td class="r">3.21%</td><td class="r">3.12%</td><td class="r">5.12%</td></tr>
+<tr><td>ATLASv2</td><td>100 a day</td><td class="r">1.26%</td><td class="r">1.23%</td><td class="r">1.91%</td></tr>
+<tr><td>ATLASv2</td><td>alert queue</td><td class="r">8.13%</td><td class="r">7.79%</td><td class="r">8.13%</td></tr>
+</tbody></table></div>
+<p class="note">One window added to each class (the default), half a window added to each class, and one window added to each class with the source queues built on the test splits of the source collections only.</p>
+</figure>
+<p><strong>The alert queue without ClearScope E3.</strong> ClearScope E3 contributes 102 of the 124 alerts, with 2 attack windows. Without it, the alert queue holds 22 labelled alerts and 7 attack windows, and the decision loss at <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.01\)</span> is 8 without questions, 9 under expected decision value, 8 under information gain, 7.5 under random choice and 8 with all questions. The large differences among the alerts, such as 107 under expected decision value against 84.5 under random choice and 28 with all questions, therefore come from ClearScope E3. Its weight has a likely cause: 34 percent of its test windows are <code>high</code>, against 3 to 19 percent in the other collections, and its validation split lies within the first 24 hours of its records, so the maximum validation score that defines an alert may come from an unusually quiet period.</p>
+<h2 id="app-sample-size"><span class="num">S5</span> How many attacks tell two criteria apart</h2>
+<p>This section derives the numbers of Table <a href="#tab-attack-requirements">S5</a>. Take two criteria <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\pi&#39;\)</span>. For each alarm <span class="math inline">\(i\)</span> of a queue, the recorded answers fix their decisions <span class="math inline">\(d_{\pi,i}\)</span> and <span class="math inline">\(d_{\pi&#39;,i}\)</span> (1 to escalate, 0 to dismiss; for random choice, the share of seeds that escalate). A label <span class="math inline">\(Y_i\)</span> is drawn with probability <span class="math inline">\(p_i\)</span>, the model’s probability of attack after all the alarm’s answers. Holding the answers fixed understates the variability that new data would show. The loss of a decision <span class="math inline">\(d\)</span> on the alarm is <span class="math inline">\(d + Y_i\,(r - (1+r)\,d)\)</span>: 1 for a false escalation, <span class="math inline">\(r\)</span> for a missed attack window and 0 otherwise. The difference in loss between the two criteria therefore has mean and variance</p>
+<div class="equation" id="eq-loss-difference">\[\begin{gathered}
+\mu_i = (d_{\pi,i} - d_{\pi',i})\,\bigl(1 - (1+r)\,p_i\bigr), \\
+\sigma_i^2 = (1+r)^2\,(d_{\pi,i} - d_{\pi',i})^2\,p_i\,(1 - p_i).
+\end{gathered} \tag{S1}\]</div>
+<p>For an alarm drawn at random from the queue, the difference has mean <span class="math inline">\(\mu\)</span>, the average of the <span class="math inline">\(\mu_i\)</span>, and variance <span class="math inline">\(\sigma^2\)</span>, the average of the <span class="math inline">\(\sigma_i^2\)</span> plus the variance of the <span class="math inline">\(\mu_i\)</span>. A two sided test at the 5 percent level detects the difference with probability 0.8 after</p>
+<div class="equation" id="eq-sample-size">\[n = \left(\frac{(z_{0.975} + z_{0.8})\,\sigma}{|\mu|}\right)^2 \approx \left(\frac{2.8\,\sigma}{|\mu|}\right)^2 \tag{S2}\]</div>
+<p>alarms, with <span class="math inline">\(z_q\)</span> as in (16): the smaller the average difference relative to its spread, the more alarms are needed. Alarms convert into attack windows through the average of the <span class="math inline">\(p_i\)</span>, and attack windows into distinct attacks through the number of attack windows per annotated attack in the same queue. For example, if two criteria differ by <span class="math inline">\(\mu = 0.1\)</span> per alarm with <span class="math inline">\(\sigma = 1.5\)</span>, then <span class="math inline">\(n = (2.8 \times 15)^2 \approx 1{,}770\)</span> alarms; with an average <span class="math inline">\(p_i\)</span> of 5 percent these hold about 88 attack windows, and at 10 attack windows per attack about 9 distinct attacks. A closed form of this kind was checked against direct simulation of the labels.</p>
+<figure class="table" id="tab-attack-requirements">
+<figcaption><span class="tag">Table S5.</span> Distinct attacks needed to tell two criteria apart under the fitted model (labels drawn from the model)</figcaption>
+<div class="scroll"><table>
+<thead><tr><th>Queue</th><th class="c">Distinct attacks in the queue</th><th class="c">EDV vs random</th><th class="c">IG vs random</th><th class="c">EDV vs IG</th><th class="c">EDV vs no question</th></tr></thead>
+<tbody>
+<tr><td>1 a day</td><td class="c">1</td><td class="c">1,200 (54)</td><td class="c">2,400 (54)</td><td class="c">5,400 (30)</td><td class="c">88 (72)</td></tr>
+<tr><td>3 a day</td><td class="c">2</td><td class="c">230 (72)</td><td class="c">550 (72)</td><td class="c">230 (30)</td><td class="c">87 (72)</td></tr>
+<tr><td>10 a day</td><td class="c">3</td><td class="c">660 (66)</td><td class="c">1,900 (66)</td><td class="c">1,100 (24)</td><td class="c">21 (78)</td></tr>
+<tr><td>30 a day</td><td class="c">6</td><td class="c">9,600 (52)</td><td class="c">9,600 (52)</td><td class="c">never (0)</td><td class="c">32 (72)</td></tr>
+<tr><td>alert queue</td><td class="c">3</td><td class="c">490 (72)</td><td class="c">490 (72)</td><td class="c">490 (48)</td><td class="c">9.6 (78)</td></tr>
+</tbody></table></div>
+<p class="note">The median over the realistic cells in which the two criteria take different decisions, rounded to two significant figures, with the number of those cells out of 90 in brackets; never: identical decisions in all 90 cells. Second column: the distinct attacks the queue actually holds.</p>
+</figure>
+<h2 id="supp-results"><span class="num">S6</span> Complete results of the replay</h2>
+<p>The tables and figures below extend the analyses of § 5. The shared daily budget is examined in full in § <a href="#supp-budget">S6.3</a>. Unless stated otherwise, they sum over the three tested groups.</p>
+<h3 id="supp-when"><span class="num">S6.1</span> When a question is worth asking</h3>
+<p>Figure <a href="#fig-admissible-questions">S4</a> extends Table 3 of § 5.1 to every cost ratio.</p>
+<figure class="figure" id="fig-admissible-questions">
+<a href="figures/f3_admissible.svg"><img src="figures/f3_admissible.svg" alt="Figure S4" loading="lazy"></a>
+<figcaption><span class="tag">Figure S4.</span> Share of alarms with an admissible question, by queue and cost ratio <span class="math inline">\(r\)</span>, for free questions (left) and a price of 0.01 false escalations (right); dashed line: all test windows. Counted without labels of the tested groups and summed over them. The vertical axis is logarithmic, and open triangles at its bottom mark a share of zero. Grey band: the realistic cost ratios, 5 to 20. <em>How to read it:</em> each point is the fraction of a queue with a question whose expected decision value exceeds its price. The share varies with the queue and cost ratio (Table 3). Among all test windows, only the handful of alerts that start near the threshold have one.</figcaption>
+</figure>
+<h3 id="supp-which"><span class="num">S6.2</span> Where the criteria can differ</h3>
+<p>Table <a href="#tab-alarm-blocks">S6</a> lists every block of alarms of the realistic queues (§ 5.2).</p>
+<figure class="table" id="tab-alarm-blocks">
+<figcaption><span class="tag">Table S6.</span> Blocks of alarms (§ 4.6) at <span class="math inline">\(r = 10\)</span>, <span class="math inline">\(c = 0.01\)</span> and no budget limit, in the realistic queues</figcaption>
+<div class="scroll"><table>
+<thead><tr><th>Tested group</th><th>Queue</th><th>Categories</th><th>Tables</th><th>Questions available</th><th class="r">Alarms</th><th>EDV asks</th><th>IG asks</th><th class="r">Decisions differing</th></tr></thead>
+<tbody>
+<tr><td>DARPA TC</td><td>1 a day</td><td>alert, high</td><td>high</td><td>file, network</td><td class="r">4</td><td>file</td><td>file</td><td class="r">0</td></tr>
+<tr><td>DARPA TC</td><td>1 a day</td><td>alert, high</td><td>high</td><td>file, network, process</td><td class="r">4</td><td>file</td><td>process</td><td class="r">3</td></tr>
+<tr><td>DARPA TC</td><td>3 a day</td><td>alert, high</td><td>high</td><td>file, network, process</td><td class="r">12</td><td>process</td><td>process</td><td class="r">0</td></tr>
+<tr><td>DARPA TC</td><td>10 a day</td><td>alert, high</td><td>high</td><td>file, network, process</td><td class="r">40</td><td>process</td><td>process</td><td class="r">0</td></tr>
+<tr><td>DARPA TC</td><td>alert queue</td><td>alert</td><td>high</td><td>file, network</td><td class="r">4</td><td>file</td><td>file</td><td class="r">0</td></tr>
+<tr><td>DARPA TC</td><td>alert queue</td><td>alert</td><td>high</td><td>file, network, process</td><td class="r">113</td><td>process</td><td>process</td><td class="r">0</td></tr>
+<tr><td>OpTC host 051</td><td>1 a day</td><td>alert</td><td>pooled</td><td>file, network, process</td><td class="r">2</td><td>file</td><td>network</td><td class="r">1</td></tr>
+<tr><td>OpTC host 051</td><td>1 a day</td><td>high</td><td>high</td><td>file, network, process</td><td class="r">1</td><td>network</td><td>network</td><td class="r">0</td></tr>
+<tr><td>OpTC host 051</td><td>3 a day</td><td>alert</td><td>pooled</td><td>file, network, process</td><td class="r">4</td><td>file</td><td>network</td><td class="r">1</td></tr>
+<tr><td>OpTC host 051</td><td>3 a day</td><td>high</td><td>high</td><td>file, network, process</td><td class="r">5</td><td>network</td><td>network</td><td class="r">0</td></tr>
+<tr><td>OpTC host 051</td><td>10 a day</td><td>alert</td><td>pooled</td><td>file, network, process</td><td class="r">4</td><td>network</td><td>network</td><td class="r">0</td></tr>
+<tr><td>OpTC host 051</td><td>10 a day</td><td>high</td><td>high</td><td>file, network, process</td><td class="r">26</td><td>network</td><td>network</td><td class="r">0</td></tr>
+<tr><td>OpTC host 051</td><td>30 a day</td><td>alert</td><td>pooled</td><td>file, network, process</td><td class="r">4</td><td>network</td><td>network</td><td class="r">0</td></tr>
+<tr><td>OpTC host 051</td><td>30 a day</td><td>high</td><td>high</td><td>file, network, process</td><td class="r">86</td><td>network</td><td>network</td><td class="r">0</td></tr>
+<tr><td>OpTC host 051</td><td>alert queue</td><td>alert</td><td>pooled</td><td>file, network, process</td><td class="r">4</td><td>file</td><td>network</td><td class="r">1</td></tr>
+<tr><td>ATLASv2</td><td>1 a day</td><td>alert</td><td>pooled</td><td>file, network, process</td><td class="r">1</td><td>network</td><td>network</td><td class="r">0</td></tr>
+<tr><td>ATLASv2</td><td>1 a day</td><td>high</td><td>high</td><td>file, network, process</td><td class="r">1</td><td>process</td><td>process</td><td class="r">0</td></tr>
+<tr><td>ATLASv2</td><td>3 a day</td><td>alert</td><td>pooled</td><td>file, network, process</td><td class="r">3</td><td>network</td><td>network</td><td class="r">0</td></tr>
+<tr><td>ATLASv2</td><td>3 a day</td><td>high</td><td>high</td><td>file, network, process</td><td class="r">3</td><td>process</td><td>process</td><td class="r">0</td></tr>
+<tr><td>ATLASv2</td><td>10 a day</td><td>alert</td><td>pooled</td><td>file, network, process</td><td class="r">3</td><td>network</td><td>network</td><td class="r">0</td></tr>
+<tr><td>ATLASv2</td><td>10 a day</td><td>high</td><td>high</td><td>file, network, process</td><td class="r">17</td><td>process</td><td>process</td><td class="r">0</td></tr>
+<tr><td>ATLASv2</td><td>30 a day</td><td>alert</td><td>pooled</td><td>file, network, process</td><td class="r">3</td><td>network</td><td>network</td><td class="r">0</td></tr>
+<tr><td>ATLASv2</td><td>30 a day</td><td>high</td><td>high</td><td>file, network, process</td><td class="r">57</td><td>process</td><td>process</td><td class="r">0</td></tr>
+<tr><td>ATLASv2</td><td>alert queue</td><td>alert</td><td>pooled</td><td>file, network, process</td><td class="r">3</td><td>network</td><td>network</td><td class="r">0</td></tr>
+</tbody></table></div>
+<p class="note">Alarms of one tested group and one queue that share the tables and the questions available. Categories: the Velox categories of the alarms of the block. Tables: the category whose tables the model uses; pooled: tables pooled over all categories. Alarms: alarms with an admissible question. EDV asks, IG asks: the question each criterion asks of every alarm of the block. Decisions differing: alarms on which the two criteria take different decisions.</p>
+</figure>
+<h3 id="supp-budget"><span class="num">S6.3</span> How many questions a day</h3>
+<p>This section asks how many questions the daily budget should allow, and what a larger budget changes in attack windows caught and in false escalations.</p>
+<p>Part of the answer is known before any question is asked. With one question per alarm, a budget larger than the day’s number of alarms with an admissible question changes nothing on that day. At <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.01\)</span>, this number is at most 1 per collection and day in the queue of one a day, 3 in the queue of three a day and 10 in the queue of ten a day. In the queue of thirty a day it is 30 on 5 of the 13 collection days and 0 on the others. Among the alerts it reaches 84, with a median of 4 over the 7 collection days with alerts. A budget of 3 questions a day thus already covers the queue of three a day, and a budget of 10 the queue of ten a day.</p>
+<p>What the questions achieve within that bound needs the labels. Figure <a href="#fig-shared-budget">S5</a> follows the queues of 3, 10 and 30 alarms a day and the alert queue at <span class="math inline">\(r = 10\)</span> and a price of 0.01; Table <a href="#tab-budget-replay">S8</a> gives every value. Two patterns stand out.</p>
+<p><strong>With a small budget, the criteria end close to one another.</strong> With one question a day, at most one alarm per collection and day is questioned: 9 alarms in the queues of three and ten a day, 5 in the queue of thirty a day and 7 among the alerts. In the queue of three a day, that single daily question catches 1 of the 5 attack windows, all of which asking nothing misses, and the decision loss falls from 65 to between 52 and 54 under every criterion. In the queue of ten a day, the 9 questions catch 1 attack window and the loss falls from 120 to about 111: a saving of about 1.0 per question, four times the value per question without a budget limit. In the queue of thirty a day and among the alerts, the single daily question changes the loss by at most two units.</p>
+<p><strong>With a large budget, the queue and the price decide.</strong> Without a budget limit, in the queue of ten a day, expected decision value and information gain catch 5 of the 12 attack windows at the cost of 27 false escalations, and random choice catches 4.6 with 28.5; asking nothing catches none and escalates nothing. The decision loss is 97 for both criteria based on the model and 102.5 for random choice, against 120 without questions. In the queue of thirty a day, 150 questions catch 3 of the 19 attack windows with 46 to 48 false escalations: a loss of 206 to 208, against 190 without questions. Among the alerts, asking nothing already escalates all 9 attack windows. Expected decision value and information gain keep them all and escalate 107 and 106 benign alerts, against 108 without questions; random choice escalates only 73.5 benign alerts but loses 1.1 attack windows.</p>
+<figure class="figure" id="fig-shared-budget">
+<a href="figures/f4_budget.svg"><img src="figures/f4_budget.svg" alt="Figure S5" loading="lazy"></a>
+<figcaption><span class="tag">Figure S5.</span> Replay with a shared daily budget at <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.01\)</span>. Columns: queues of 3, 10 and 30 alarms a day and the alert queue, with the number of labelled alarms and of attack windows among them. The queue of one alarm a day is left out: it holds one alarm per collection and day, so no budget binds there (Table <a href="#tab-budget-replay">S8</a>). Top: attack windows escalated. Bottom: benign windows escalated (false escalations). Horizontal axis: questions available per collection and day, <span class="math inline">\(B\)</span>. Lines: the criteria that choose the question, with the fixed order asking file, then network, then process; dashed grey: no question; yellow: every question on every alarm, without budget. In the top left panel the lines of no question and of all questions both lie at 0. Sums over the three tested groups; random choice is the mean of ten seeds. <em>How to read it:</em> moving right allows more automated evidence questions. Where the lines of the criteria overlap, the choice of question changed nothing; where they part, it changed which alarms were escalated.</figcaption>
+</figure>
+<p><strong>How many questions an alarm may receive.</strong> The daily budget is one design choice; the number of questions an alarm may receive is another, and it matters more. The largest change in this study comes not from the criterion but from the rule of one question per alarm. Under a <em>sequential rule</em>, an alarm receives a further question as long as some unasked question is still admissible at its updated probability, with no budget limit. At <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.01\)</span>, the alert queue then catches 7 of its 9 attack windows with only 8 false escalations. Its decision loss falls to 28, the loss of asking all three questions of every alarm, from 107 with one question chosen by expected decision value and 108 without questions. In the queue of ten a day the same rule raises the loss from 97 to 128, above the 120 of asking nothing, and in the queue of three a day from 29 to 60. Under the sequential rule every criterion reaches nearly the same loss, within 2 in every realistic queue, so the choice of the first question matters even less. Further questions help where a later answer can overturn a misleading earlier one, and hurt where each further answer adds a chance of a false escalation. A rule that plans several questions ahead, rather than one at a time, is not studied here; § <a href="#app-sensitivity">S4</a> reports two further checks, on the order in which alarms are visited and on the smoothing strength.</p>
+<p>Table <a href="#tab-realistic-results">S7</a> gives the range of every criterion over the realistic cells, and Table <a href="#tab-criterion-losses">S9</a> the decision loss of every criterion, including all six fixed orders.</p>
+<figure class="table" id="tab-realistic-results">
+<figcaption><span class="tag">Table S7.</span> The criteria over the realistic cells</figcaption>
+<div class="scroll"><table>
+<thead><tr><th>Queue</th><th>Criterion</th><th class="c">Attack windows caught</th><th class="c">False escalations</th><th class="c">Questions asked</th><th class="c">Decisions different from EDV</th></tr></thead>
+<tbody>
+<tr><td>1 a day</td><td>EDV</td><td class="c">0 to 1</td><td class="c">0 to 12</td><td class="c">0 to 13</td><td class="c">0</td></tr>
+<tr><td></td><td>IG</td><td class="c">0 to 1</td><td class="c">0 to 12</td><td class="c">0 to 13</td><td class="c">0 to 4</td></tr>
+<tr><td></td><td>random</td><td class="c">0 to 1</td><td class="c">0 to 12</td><td class="c">0 to 13</td><td class="c">0 to 4.7</td></tr>
+<tr><td></td><td>fixed order (file, network, process)</td><td class="c">0 to 1</td><td class="c">0 to 12</td><td class="c">0 to 13</td><td class="c">0 to 1</td></tr>
+<tr><td></td><td>no question</td><td class="c">0 to 1</td><td class="c">0 to 12</td><td class="c">0</td><td class="c">0 to 4</td></tr>
+<tr><td></td><td>all questions</td><td class="c">1</td><td class="c">3 to 8</td><td class="c">35</td><td class="c">2 to 5</td></tr>
+<tr><td>3 a day</td><td>EDV</td><td class="c">0 to 5</td><td class="c">0 to 17</td><td class="c">0 to 28</td><td class="c">0</td></tr>
+<tr><td></td><td>IG</td><td class="c">0 to 5</td><td class="c">0 to 17</td><td class="c">0 to 28</td><td class="c">0 to 1</td></tr>
+<tr><td></td><td>random</td><td class="c">0 to 5</td><td class="c">0 to 21.1</td><td class="c">0 to 28</td><td class="c">0 to 7.5</td></tr>
+<tr><td></td><td>fixed order (file, network, process)</td><td class="c">0 to 5</td><td class="c">0 to 26</td><td class="c">0 to 28</td><td class="c">0 to 9</td></tr>
+<tr><td></td><td>no question</td><td class="c">0</td><td class="c">0 to 15</td><td class="c">0</td><td class="c">0 to 9</td></tr>
+<tr><td></td><td>all questions</td><td class="c">0 to 5</td><td class="c">9 to 17</td><td class="c">105</td><td class="c">1 to 15</td></tr>
+<tr><td>10 a day</td><td>EDV</td><td class="c">0 to 7</td><td class="c">0 to 51</td><td class="c">0 to 130</td><td class="c">0</td></tr>
+<tr><td></td><td>IG</td><td class="c">0 to 11</td><td class="c">0 to 48</td><td class="c">0 to 130</td><td class="c">0 to 18</td></tr>
+<tr><td></td><td>random</td><td class="c">0 to 8.9</td><td class="c">0 to 55.6</td><td class="c">0 to 130</td><td class="c">0 to 20.3</td></tr>
+<tr><td></td><td>fixed order (file, network, process)</td><td class="c">0 to 12</td><td class="c">0 to 76</td><td class="c">0 to 130</td><td class="c">0 to 51</td></tr>
+<tr><td></td><td>no question</td><td class="c">0 to 2</td><td class="c">0 to 48</td><td class="c">0</td><td class="c">0 to 32</td></tr>
+<tr><td></td><td>all questions</td><td class="c">2 to 11</td><td class="c">26 to 45</td><td class="c">350</td><td class="c">2 to 36</td></tr>
+<tr><td>30 a day</td><td>EDV</td><td class="c">0 to 9</td><td class="c">0 to 59</td><td class="c">0 to 390</td><td class="c">0</td></tr>
+<tr><td></td><td>IG</td><td class="c">0 to 9</td><td class="c">0 to 59</td><td class="c">0 to 390</td><td class="c">0</td></tr>
+<tr><td></td><td>random</td><td class="c">0 to 10.8</td><td class="c">0 to 71.3</td><td class="c">0 to 390</td><td class="c">0 to 37.3</td></tr>
+<tr><td></td><td>fixed order (file, network, process)</td><td class="c">0 to 12</td><td class="c">0 to 103</td><td class="c">0 to 390</td><td class="c">0 to 75</td></tr>
+<tr><td></td><td>no question</td><td class="c">0</td><td class="c">0</td><td class="c">0</td><td class="c">0 to 68</td></tr>
+<tr><td></td><td>all questions</td><td class="c">2 to 9</td><td class="c">41 to 68</td><td class="c">1,050</td><td class="c">22 to 72</td></tr>
+<tr><td>alert queue</td><td>EDV</td><td class="c">0 to 9</td><td class="c">0 to 115</td><td class="c">0 to 124</td><td class="c">0</td></tr>
+<tr><td></td><td>IG</td><td class="c">0 to 9</td><td class="c">0 to 115</td><td class="c">0 to 124</td><td class="c">0 to 1</td></tr>
+<tr><td></td><td>random</td><td class="c">0 to 9</td><td class="c">0 to 115</td><td class="c">0 to 124</td><td class="c">0 to 37.2</td></tr>
+<tr><td></td><td>fixed order (file, network, process)</td><td class="c">0 to 9</td><td class="c">0 to 115</td><td class="c">0 to 124</td><td class="c">0 to 7</td></tr>
+<tr><td></td><td>no question</td><td class="c">0 to 9</td><td class="c">0 to 115</td><td class="c">0</td><td class="c">0 to 13</td></tr>
+<tr><td></td><td>all questions</td><td class="c">6 to 7</td><td class="c">6 to 14</td><td class="c">368</td><td class="c">3 to 108</td></tr>
+</tbody></table></div>
+<p class="note">Ranges, over the queues of 1, 3, 10 and 30 alarms a day and the alert queue, <span class="math inline">\(r\)</span> in {5, 10, 20}, <span class="math inline">\(c\)</span> in {0.001, 0.01, 0.03, 0.1, 0.3} and every budget, of sums over the three tested groups. Labelled alarms (attack windows): 1 a day 13 (1), 3 a day 39 (5), 10 a day 130 (12), 30 a day 390 (19), alert queue 124 (9). Fixed order: file, then network, then process. Last column: alarms on which the criterion’s decision differs from that of expected decision value. Each range joins the extremes of different cells, so a row does not describe one trade between caught attacks and false escalations; Table <a href="#tab-budget-replay">S8</a> gives every value at <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.01\)</span>.</p>
+</figure>
+<figure class="table" id="tab-budget-replay">
+<figcaption><span class="tag">Table S8.</span> Replay at <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.01\)</span>, sums over the three tested groups, for every queue, budget <span class="math inline">\(B\)</span> and criterion; the references no question and all questions do not depend on the budget.</figcaption>
+<details><summary>Show all 136 rows</summary>
+<div class="scroll"><table>
+<thead><tr><th>Queue</th><th>B</th><th>Criterion</th><th class="r">Attack windows caught</th><th class="r">False escalations</th><th class="r">Questions</th><th class="r">Loss D</th></tr></thead>
+<tbody>
+<tr><td>1 a day</td><td>1 to ∞</td><td>EDV</td><td class="r">1</td><td class="r">8</td><td class="r">13</td><td class="r">8</td></tr>
+<tr><td>1 a day</td><td>1 to ∞</td><td>IG</td><td class="r">1</td><td class="r">4</td><td class="r">13</td><td class="r">4</td></tr>
+<tr><td>1 a day</td><td>1 to ∞</td><td>random</td><td class="r">1</td><td class="r">4.9</td><td class="r">13</td><td class="r">4.9</td></tr>
+<tr><td>1 a day</td><td>1 to ∞</td><td>fixed order (file, network, process)</td><td class="r">1</td><td class="r">9</td><td class="r">13</td><td class="r">9</td></tr>
+<tr><td>1 a day</td><td>any</td><td>no question</td><td class="r">1</td><td class="r">12</td><td class="r">0</td><td class="r">12</td></tr>
+<tr><td>1 a day</td><td>any</td><td>all questions</td><td class="r">1</td><td class="r">6</td><td class="r">35</td><td class="r">6</td></tr>
+<tr><td>3 a day</td><td>1</td><td>EDV</td><td class="r">1</td><td class="r">13</td><td class="r">9</td><td class="r">53</td></tr>
+<tr><td>3 a day</td><td>1</td><td>IG</td><td class="r">1</td><td class="r">12</td><td class="r">9</td><td class="r">52</td></tr>
+<tr><td>3 a day</td><td>1</td><td>random</td><td class="r">1</td><td class="r">13.1</td><td class="r">9</td><td class="r">53.1</td></tr>
+<tr><td>3 a day</td><td>1</td><td>fixed order (file, network, process)</td><td class="r">1</td><td class="r">14</td><td class="r">9</td><td class="r">54</td></tr>
+<tr><td>3 a day</td><td>2</td><td>EDV</td><td class="r">2</td><td class="r">11</td><td class="r">18</td><td class="r">41</td></tr>
+<tr><td>3 a day</td><td>2</td><td>IG</td><td class="r">2</td><td class="r">10</td><td class="r">18</td><td class="r">40</td></tr>
+<tr><td>3 a day</td><td>2</td><td>random</td><td class="r">2</td><td class="r">10.8</td><td class="r">18</td><td class="r">40.8</td></tr>
+<tr><td>3 a day</td><td>2</td><td>fixed order (file, network, process)</td><td class="r">2</td><td class="r">12</td><td class="r">18</td><td class="r">42</td></tr>
+<tr><td>3 a day</td><td>3</td><td>EDV</td><td class="r">3</td><td class="r">9</td><td class="r">27</td><td class="r">29</td></tr>
+<tr><td>3 a day</td><td>3</td><td>IG</td><td class="r">3</td><td class="r">8</td><td class="r">27</td><td class="r">28</td></tr>
+<tr><td>3 a day</td><td>3</td><td>random</td><td class="r">3</td><td class="r">9.5</td><td class="r">27</td><td class="r">29.5</td></tr>
+<tr><td>3 a day</td><td>3</td><td>fixed order (file, network, process)</td><td class="r">3</td><td class="r">11</td><td class="r">27</td><td class="r">31</td></tr>
+<tr><td>3 a day</td><td>5</td><td>EDV</td><td class="r">3</td><td class="r">9</td><td class="r">27</td><td class="r">29</td></tr>
+<tr><td>3 a day</td><td>5</td><td>IG</td><td class="r">3</td><td class="r">8</td><td class="r">27</td><td class="r">28</td></tr>
+<tr><td>3 a day</td><td>5</td><td>random</td><td class="r">3</td><td class="r">9.5</td><td class="r">27</td><td class="r">29.5</td></tr>
+<tr><td>3 a day</td><td>5</td><td>fixed order (file, network, process)</td><td class="r">3</td><td class="r">11</td><td class="r">27</td><td class="r">31</td></tr>
+<tr><td>3 a day</td><td>10</td><td>EDV</td><td class="r">3</td><td class="r">9</td><td class="r">27</td><td class="r">29</td></tr>
+<tr><td>3 a day</td><td>10</td><td>IG</td><td class="r">3</td><td class="r">8</td><td class="r">27</td><td class="r">28</td></tr>
+<tr><td>3 a day</td><td>10</td><td>random</td><td class="r">3</td><td class="r">9.5</td><td class="r">27</td><td class="r">29.5</td></tr>
+<tr><td>3 a day</td><td>10</td><td>fixed order (file, network, process)</td><td class="r">3</td><td class="r">11</td><td class="r">27</td><td class="r">31</td></tr>
+<tr><td>3 a day</td><td>∞</td><td>EDV</td><td class="r">3</td><td class="r">9</td><td class="r">27</td><td class="r">29</td></tr>
+<tr><td>3 a day</td><td>∞</td><td>IG</td><td class="r">3</td><td class="r">8</td><td class="r">27</td><td class="r">28</td></tr>
+<tr><td>3 a day</td><td>∞</td><td>random</td><td class="r">3</td><td class="r">9.5</td><td class="r">27</td><td class="r">29.5</td></tr>
+<tr><td>3 a day</td><td>∞</td><td>fixed order (file, network, process)</td><td class="r">3</td><td class="r">11</td><td class="r">27</td><td class="r">31</td></tr>
+<tr><td>3 a day</td><td>any</td><td>no question</td><td class="r">0</td><td class="r">15</td><td class="r">0</td><td class="r">65</td></tr>
+<tr><td>3 a day</td><td>any</td><td>all questions</td><td class="r">0</td><td class="r">10</td><td class="r">105</td><td class="r">60</td></tr>
+<tr><td>10 a day</td><td>1</td><td>EDV</td><td class="r">1</td><td class="r">1</td><td class="r">9</td><td class="r">111</td></tr>
+<tr><td>10 a day</td><td>1</td><td>IG</td><td class="r">1</td><td class="r">1</td><td class="r">9</td><td class="r">111</td></tr>
+<tr><td>10 a day</td><td>1</td><td>random</td><td class="r">1</td><td class="r">1.7</td><td class="r">9</td><td class="r">111.7</td></tr>
+<tr><td>10 a day</td><td>1</td><td>fixed order (file, network, process)</td><td class="r">1</td><td class="r">4</td><td class="r">9</td><td class="r">114</td></tr>
+<tr><td>10 a day</td><td>2</td><td>EDV</td><td class="r">2</td><td class="r">4</td><td class="r">18</td><td class="r">104</td></tr>
+<tr><td>10 a day</td><td>2</td><td>IG</td><td class="r">2</td><td class="r">4</td><td class="r">18</td><td class="r">104</td></tr>
+<tr><td>10 a day</td><td>2</td><td>random</td><td class="r">2</td><td class="r">4</td><td class="r">18</td><td class="r">104</td></tr>
+<tr><td>10 a day</td><td>2</td><td>fixed order (file, network, process)</td><td class="r">2</td><td class="r">8</td><td class="r">18</td><td class="r">108</td></tr>
+<tr><td>10 a day</td><td>3</td><td>EDV</td><td class="r">3</td><td class="r">7</td><td class="r">27</td><td class="r">97</td></tr>
+<tr><td>10 a day</td><td>3</td><td>IG</td><td class="r">3</td><td class="r">7</td><td class="r">27</td><td class="r">97</td></tr>
+<tr><td>10 a day</td><td>3</td><td>random</td><td class="r">3</td><td class="r">7.7</td><td class="r">27</td><td class="r">97.7</td></tr>
+<tr><td>10 a day</td><td>3</td><td>fixed order (file, network, process)</td><td class="r">3</td><td class="r">13</td><td class="r">27</td><td class="r">103</td></tr>
+<tr><td>10 a day</td><td>5</td><td>EDV</td><td class="r">3</td><td class="r">15</td><td class="r">45</td><td class="r">105</td></tr>
+<tr><td>10 a day</td><td>5</td><td>IG</td><td class="r">3</td><td class="r">15</td><td class="r">45</td><td class="r">105</td></tr>
+<tr><td>10 a day</td><td>5</td><td>random</td><td class="r">3</td><td class="r">14.9</td><td class="r">45</td><td class="r">104.9</td></tr>
+<tr><td>10 a day</td><td>5</td><td>fixed order (file, network, process)</td><td class="r">3</td><td class="r">23</td><td class="r">45</td><td class="r">113</td></tr>
+<tr><td>10 a day</td><td>10</td><td>EDV</td><td class="r">5</td><td class="r">27</td><td class="r">90</td><td class="r">97</td></tr>
+<tr><td>10 a day</td><td>10</td><td>IG</td><td class="r">5</td><td class="r">27</td><td class="r">90</td><td class="r">97</td></tr>
+<tr><td>10 a day</td><td>10</td><td>random</td><td class="r">4.6</td><td class="r">28.5</td><td class="r">90</td><td class="r">102.5</td></tr>
+<tr><td>10 a day</td><td>10</td><td>fixed order (file, network, process)</td><td class="r">5</td><td class="r">45</td><td class="r">90</td><td class="r">115</td></tr>
+<tr><td>10 a day</td><td>∞</td><td>EDV</td><td class="r">5</td><td class="r">27</td><td class="r">90</td><td class="r">97</td></tr>
+<tr><td>10 a day</td><td>∞</td><td>IG</td><td class="r">5</td><td class="r">27</td><td class="r">90</td><td class="r">97</td></tr>
+<tr><td>10 a day</td><td>∞</td><td>random</td><td class="r">4.6</td><td class="r">28.5</td><td class="r">90</td><td class="r">102.5</td></tr>
+<tr><td>10 a day</td><td>∞</td><td>fixed order (file, network, process)</td><td class="r">5</td><td class="r">45</td><td class="r">90</td><td class="r">115</td></tr>
+<tr><td>10 a day</td><td>any</td><td>no question</td><td class="r">0</td><td class="r">0</td><td class="r">0</td><td class="r">120</td></tr>
+<tr><td>10 a day</td><td>any</td><td>all questions</td><td class="r">2</td><td class="r">29</td><td class="r">350</td><td class="r">129</td></tr>
+<tr><td>30 a day</td><td>1</td><td>EDV</td><td class="r">0</td><td class="r">1</td><td class="r">5</td><td class="r">191</td></tr>
+<tr><td>30 a day</td><td>1</td><td>IG</td><td class="r">0</td><td class="r">1</td><td class="r">5</td><td class="r">191</td></tr>
+<tr><td>30 a day</td><td>1</td><td>random</td><td class="r">0</td><td class="r">1.3</td><td class="r">5</td><td class="r">191.3</td></tr>
+<tr><td>30 a day</td><td>1</td><td>fixed order (file, network, process)</td><td class="r">0</td><td class="r">2</td><td class="r">5</td><td class="r">192</td></tr>
+<tr><td>30 a day</td><td>2</td><td>EDV</td><td class="r">0</td><td class="r">4</td><td class="r">10</td><td class="r">194</td></tr>
+<tr><td>30 a day</td><td>2</td><td>IG</td><td class="r">0</td><td class="r">4</td><td class="r">10</td><td class="r">194</td></tr>
+<tr><td>30 a day</td><td>2</td><td>random</td><td class="r">0</td><td class="r">3.6</td><td class="r">10</td><td class="r">193.6</td></tr>
+<tr><td>30 a day</td><td>2</td><td>fixed order (file, network, process)</td><td class="r">0</td><td class="r">5</td><td class="r">10</td><td class="r">195</td></tr>
+<tr><td>30 a day</td><td>3</td><td>EDV</td><td class="r">0</td><td class="r">7</td><td class="r">15</td><td class="r">197</td></tr>
+<tr><td>30 a day</td><td>3</td><td>IG</td><td class="r">0</td><td class="r">7</td><td class="r">15</td><td class="r">197</td></tr>
+<tr><td>30 a day</td><td>3</td><td>random</td><td class="r">0</td><td class="r">6.3</td><td class="r">15</td><td class="r">196.3</td></tr>
+<tr><td>30 a day</td><td>3</td><td>fixed order (file, network, process)</td><td class="r">0</td><td class="r">8</td><td class="r">15</td><td class="r">198</td></tr>
+<tr><td>30 a day</td><td>5</td><td>EDV</td><td class="r">0</td><td class="r">15</td><td class="r">25</td><td class="r">205</td></tr>
+<tr><td>30 a day</td><td>5</td><td>IG</td><td class="r">0</td><td class="r">15</td><td class="r">25</td><td class="r">205</td></tr>
+<tr><td>30 a day</td><td>5</td><td>random</td><td class="r">0</td><td class="r">14.3</td><td class="r">25</td><td class="r">204.3</td></tr>
+<tr><td>30 a day</td><td>5</td><td>fixed order (file, network, process)</td><td class="r">0</td><td class="r">16</td><td class="r">25</td><td class="r">206</td></tr>
+<tr><td>30 a day</td><td>10</td><td>EDV</td><td class="r">2</td><td class="r">27</td><td class="r">50</td><td class="r">197</td></tr>
+<tr><td>30 a day</td><td>10</td><td>IG</td><td class="r">2</td><td class="r">27</td><td class="r">50</td><td class="r">197</td></tr>
+<tr><td>30 a day</td><td>10</td><td>random</td><td class="r">2</td><td class="r">26.3</td><td class="r">50</td><td class="r">196.3</td></tr>
+<tr><td>30 a day</td><td>10</td><td>fixed order (file, network, process)</td><td class="r">2</td><td class="r">28</td><td class="r">50</td><td class="r">198</td></tr>
+<tr><td>30 a day</td><td>∞</td><td>EDV</td><td class="r">3</td><td class="r">47</td><td class="r">150</td><td class="r">207</td></tr>
+<tr><td>30 a day</td><td>∞</td><td>IG</td><td class="r">3</td><td class="r">47</td><td class="r">150</td><td class="r">207</td></tr>
+<tr><td>30 a day</td><td>∞</td><td>random</td><td class="r">3</td><td class="r">46.3</td><td class="r">150</td><td class="r">206.3</td></tr>
+<tr><td>30 a day</td><td>∞</td><td>fixed order (file, network, process)</td><td class="r">3</td><td class="r">48</td><td class="r">150</td><td class="r">208</td></tr>
+<tr><td>30 a day</td><td>any</td><td>no question</td><td class="r">0</td><td class="r">0</td><td class="r">0</td><td class="r">190</td></tr>
+<tr><td>30 a day</td><td>any</td><td>all questions</td><td class="r">2</td><td class="r">56</td><td class="r">1,050</td><td class="r">226</td></tr>
+<tr><td>100 a day</td><td>1</td><td>EDV</td><td class="r">0</td><td class="r">1</td><td class="r">5</td><td class="r">291</td></tr>
+<tr><td>100 a day</td><td>1</td><td>IG</td><td class="r">0</td><td class="r">1</td><td class="r">5</td><td class="r">291</td></tr>
+<tr><td>100 a day</td><td>1</td><td>random</td><td class="r">0</td><td class="r">1</td><td class="r">5</td><td class="r">291</td></tr>
+<tr><td>100 a day</td><td>1</td><td>fixed order (file, network, process)</td><td class="r">0</td><td class="r">1</td><td class="r">5</td><td class="r">291</td></tr>
+<tr><td>100 a day</td><td>2</td><td>EDV</td><td class="r">0</td><td class="r">3</td><td class="r">9</td><td class="r">293</td></tr>
+<tr><td>100 a day</td><td>2</td><td>IG</td><td class="r">0</td><td class="r">3</td><td class="r">9</td><td class="r">293</td></tr>
+<tr><td>100 a day</td><td>2</td><td>random</td><td class="r">0</td><td class="r">2.3</td><td class="r">9</td><td class="r">292.3</td></tr>
+<tr><td>100 a day</td><td>2</td><td>fixed order (file, network, process)</td><td class="r">0</td><td class="r">3</td><td class="r">9</td><td class="r">293</td></tr>
+<tr><td>100 a day</td><td>3</td><td>EDV</td><td class="r">0</td><td class="r">5</td><td class="r">13</td><td class="r">295</td></tr>
+<tr><td>100 a day</td><td>3</td><td>IG</td><td class="r">0</td><td class="r">5</td><td class="r">13</td><td class="r">295</td></tr>
+<tr><td>100 a day</td><td>3</td><td>random</td><td class="r">0</td><td class="r">4</td><td class="r">13</td><td class="r">294</td></tr>
+<tr><td>100 a day</td><td>3</td><td>fixed order (file, network, process)</td><td class="r">0</td><td class="r">5</td><td class="r">13</td><td class="r">295</td></tr>
+<tr><td>100 a day</td><td>5</td><td>EDV</td><td class="r">0</td><td class="r">7</td><td class="r">19</td><td class="r">297</td></tr>
+<tr><td>100 a day</td><td>5</td><td>IG</td><td class="r">0</td><td class="r">7</td><td class="r">19</td><td class="r">297</td></tr>
+<tr><td>100 a day</td><td>5</td><td>random</td><td class="r">0</td><td class="r">6</td><td class="r">19</td><td class="r">296</td></tr>
+<tr><td>100 a day</td><td>5</td><td>fixed order (file, network, process)</td><td class="r">0</td><td class="r">7</td><td class="r">19</td><td class="r">297</td></tr>
+<tr><td>100 a day</td><td>10</td><td>EDV</td><td class="r">0</td><td class="r">10</td><td class="r">34</td><td class="r">300</td></tr>
+<tr><td>100 a day</td><td>10</td><td>IG</td><td class="r">0</td><td class="r">10</td><td class="r">34</td><td class="r">300</td></tr>
+<tr><td>100 a day</td><td>10</td><td>random</td><td class="r">0</td><td class="r">9</td><td class="r">34</td><td class="r">299</td></tr>
+<tr><td>100 a day</td><td>10</td><td>fixed order (file, network, process)</td><td class="r">0</td><td class="r">10</td><td class="r">34</td><td class="r">300</td></tr>
+<tr><td>100 a day</td><td>∞</td><td>EDV</td><td class="r">2</td><td class="r">31</td><td class="r">232</td><td class="r">301</td></tr>
+<tr><td>100 a day</td><td>∞</td><td>IG</td><td class="r">2</td><td class="r">31</td><td class="r">232</td><td class="r">301</td></tr>
+<tr><td>100 a day</td><td>∞</td><td>random</td><td class="r">2</td><td class="r">30</td><td class="r">232</td><td class="r">300</td></tr>
+<tr><td>100 a day</td><td>∞</td><td>fixed order (file, network, process)</td><td class="r">2</td><td class="r">31</td><td class="r">232</td><td class="r">301</td></tr>
+<tr><td>100 a day</td><td>any</td><td>no question</td><td class="r">0</td><td class="r">0</td><td class="r">0</td><td class="r">290</td></tr>
+<tr><td>100 a day</td><td>any</td><td>all questions</td><td class="r">2</td><td class="r">72</td><td class="r">3,491</td><td class="r">342</td></tr>
+<tr><td>alert queue</td><td>1</td><td>EDV</td><td class="r">9</td><td class="r">110</td><td class="r">7</td><td class="r">110</td></tr>
+<tr><td>alert queue</td><td>1</td><td>IG</td><td class="r">9</td><td class="r">109</td><td class="r">7</td><td class="r">109</td></tr>
+<tr><td>alert queue</td><td>1</td><td>random</td><td class="r">9</td><td class="r">108.6</td><td class="r">7</td><td class="r">108.6</td></tr>
+<tr><td>alert queue</td><td>1</td><td>fixed order (file, network, process)</td><td class="r">9</td><td class="r">110</td><td class="r">7</td><td class="r">110</td></tr>
+<tr><td>alert queue</td><td>2</td><td>EDV</td><td class="r">9</td><td class="r">112</td><td class="r">13</td><td class="r">112</td></tr>
+<tr><td>alert queue</td><td>2</td><td>IG</td><td class="r">9</td><td class="r">111</td><td class="r">13</td><td class="r">111</td></tr>
+<tr><td>alert queue</td><td>2</td><td>random</td><td class="r">9</td><td class="r">109.2</td><td class="r">13</td><td class="r">109.2</td></tr>
+<tr><td>alert queue</td><td>2</td><td>fixed order (file, network, process)</td><td class="r">9</td><td class="r">112</td><td class="r">13</td><td class="r">112</td></tr>
+<tr><td>alert queue</td><td>3</td><td>EDV</td><td class="r">9</td><td class="r">114</td><td class="r">19</td><td class="r">114</td></tr>
+<tr><td>alert queue</td><td>3</td><td>IG</td><td class="r">9</td><td class="r">113</td><td class="r">19</td><td class="r">113</td></tr>
+<tr><td>alert queue</td><td>3</td><td>random</td><td class="r">9</td><td class="r">110.4</td><td class="r">19</td><td class="r">110.4</td></tr>
+<tr><td>alert queue</td><td>3</td><td>fixed order (file, network, process)</td><td class="r">9</td><td class="r">114</td><td class="r">19</td><td class="r">114</td></tr>
+<tr><td>alert queue</td><td>5</td><td>EDV</td><td class="r">9</td><td class="r">113</td><td class="r">26</td><td class="r">113</td></tr>
+<tr><td>alert queue</td><td>5</td><td>IG</td><td class="r">9</td><td class="r">112</td><td class="r">26</td><td class="r">112</td></tr>
+<tr><td>alert queue</td><td>5</td><td>random</td><td class="r">9</td><td class="r">108.5</td><td class="r">26</td><td class="r">108.5</td></tr>
+<tr><td>alert queue</td><td>5</td><td>fixed order (file, network, process)</td><td class="r">9</td><td class="r">114</td><td class="r">26</td><td class="r">114</td></tr>
+<tr><td>alert queue</td><td>10</td><td>EDV</td><td class="r">9</td><td class="r">109</td><td class="r">41</td><td class="r">109</td></tr>
+<tr><td>alert queue</td><td>10</td><td>IG</td><td class="r">9</td><td class="r">108</td><td class="r">41</td><td class="r">108</td></tr>
+<tr><td>alert queue</td><td>10</td><td>random</td><td class="r">9</td><td class="r">101.4</td><td class="r">41</td><td class="r">101.4</td></tr>
+<tr><td>alert queue</td><td>10</td><td>fixed order (file, network, process)</td><td class="r">9</td><td class="r">111</td><td class="r">41</td><td class="r">111</td></tr>
+<tr><td>alert queue</td><td>∞</td><td>EDV</td><td class="r">9</td><td class="r">107</td><td class="r">124</td><td class="r">107</td></tr>
+<tr><td>alert queue</td><td>∞</td><td>IG</td><td class="r">9</td><td class="r">106</td><td class="r">124</td><td class="r">106</td></tr>
+<tr><td>alert queue</td><td>∞</td><td>random</td><td class="r">7.9</td><td class="r">73.5</td><td class="r">124</td><td class="r">84.5</td></tr>
+<tr><td>alert queue</td><td>∞</td><td>fixed order (file, network, process)</td><td class="r">9</td><td class="r">108</td><td class="r">124</td><td class="r">108</td></tr>
+<tr><td>alert queue</td><td>any</td><td>no question</td><td class="r">9</td><td class="r">108</td><td class="r">0</td><td class="r">108</td></tr>
+<tr><td>alert queue</td><td>any</td><td>all questions</td><td class="r">7</td><td class="r">8</td><td class="r">368</td><td class="r">28</td></tr>
+</tbody></table></div>
+</details>
+<p class="note">Loss <span class="math inline">\(D = 10M + F\)</span>. Values with one decimal are means over the ten seeds of random choice. The queue of 1 alarm a day holds one alarm per collection and day, so no budget binds there and its rows are given once. Fixed order: file, then network, then process.</p>
+</figure>
+<figure class="table" id="tab-criterion-losses">
+<figcaption><span class="tag">Table S9.</span> Decision loss <span class="math inline">\(D\)</span> of every criterion at <span class="math inline">\(r = 10\)</span>, <span class="math inline">\(c = 0.01\)</span> and no budget limit, sums over the three tested groups.</figcaption>
+<div class="scroll"><table>
+<thead><tr><th>Queue</th><th class="r">Questions</th><th class="r">No question</th><th class="r">EDV</th><th class="r">IG</th><th class="r">Random</th><th>file, network, process</th><th>file, process, network</th><th>network, file, process</th><th>network, process, file</th><th>process, file, network</th><th>process, network, file</th><th class="r">All questions</th></tr></thead>
+<tbody>
+<tr><td>1 a day</td><td class="r">13</td><td class="r">12</td><td class="r">8</td><td class="r">4</td><td class="r">4.9</td><td>9</td><td>9</td><td>3</td><td>3</td><td>4</td><td>2</td><td class="r">6</td></tr>
+<tr><td>3 a day</td><td class="r">27</td><td class="r">65</td><td class="r">29</td><td class="r">28</td><td class="r">29.5</td><td>31</td><td>31</td><td>31</td><td>31</td><td>26</td><td>26</td><td class="r">60</td></tr>
+<tr><td>10 a day</td><td class="r">90</td><td class="r">120</td><td class="r">97</td><td class="r">97</td><td class="r">102.5</td><td>115</td><td>115</td><td>95</td><td>95</td><td>94</td><td>94</td><td class="r">129</td></tr>
+<tr><td>30 a day</td><td class="r">150</td><td class="r">190</td><td class="r">207</td><td class="r">207</td><td class="r">206.3</td><td>208</td><td>206</td><td>207</td><td>207</td><td>205</td><td>205</td><td class="r">226</td></tr>
+<tr><td>alert queue</td><td class="r">124</td><td class="r">108</td><td class="r">107</td><td class="r">106</td><td class="r">84.5</td><td>108</td><td>108</td><td>27</td><td>27</td><td>104</td><td>104</td><td class="r">28</td></tr>
+</tbody></table></div>
+<p class="note">Each fixed order is named by the order of its questions. Questions: the number of questions every criterion asks.</p>
+</figure>
+<p>Figures <a href="#fig-shared-budget-r5">S6</a> to <a href="#fig-shared-budget-c03">S11</a> repeat Figure <a href="#fig-shared-budget">S5</a> at the other values of the realistic region, and are read in the same way. Columns: queues of 3, 10 and 30 alarms a day and the alert queue, with the number of labelled alarms and of attack windows among them; the queue of one alarm a day is left out, since no budget binds there. Top: attack windows escalated. Bottom: benign windows escalated (false escalations). Horizontal axis: questions available per collection and day, <span class="math inline">\(B\)</span>. Lines: the criteria that choose the question, with the fixed order asking file, then network, then process; dashed grey: no question; yellow: every question on every alarm, without budget. Every vertical axis starts at 0. Random choice is the mean of ten seeds. Where the lines of the criteria overlap, the choice of question changed nothing; where they part, it changed which alarms were escalated.</p>
+<figure class="figure" id="fig-shared-budget-r5">
+<a href="figures/f4_budget_r5_c0.01.svg"><img src="figures/f4_budget_r5_c0.01.svg" alt="Figure S6" loading="lazy"></a>
+<figcaption><span class="tag">Figure S6.</span> Figure <a href="#fig-shared-budget">S5</a> at <span class="math inline">\(r = 5\)</span> and <span class="math inline">\(c = 0.01\)</span>.</figcaption>
+</figure>
+<figure class="figure" id="fig-shared-budget-r20">
+<a href="figures/f4_budget_r20_c0.01.svg"><img src="figures/f4_budget_r20_c0.01.svg" alt="Figure S7" loading="lazy"></a>
+<figcaption><span class="tag">Figure S7.</span> Figure <a href="#fig-shared-budget">S5</a> at <span class="math inline">\(r = 20\)</span> and <span class="math inline">\(c = 0.01\)</span>.</figcaption>
+</figure>
+<figure class="figure" id="fig-shared-budget-c0001">
+<a href="figures/f4_budget_r10_c0.001.svg"><img src="figures/f4_budget_r10_c0.001.svg" alt="Figure S8" loading="lazy"></a>
+<figcaption><span class="tag">Figure S8.</span> Figure <a href="#fig-shared-budget">S5</a> at <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.001\)</span>.</figcaption>
+</figure>
+<figure class="figure" id="fig-shared-budget-c003">
+<a href="figures/f4_budget_r10_c0.03.svg"><img src="figures/f4_budget_r10_c0.03.svg" alt="Figure S9" loading="lazy"></a>
+<figcaption><span class="tag">Figure S9.</span> Figure <a href="#fig-shared-budget">S5</a> at <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.03\)</span>.</figcaption>
+</figure>
+<figure class="figure" id="fig-shared-budget-c01">
+<a href="figures/f4_budget_r10_c0.1.svg"><img src="figures/f4_budget_r10_c0.1.svg" alt="Figure S10" loading="lazy"></a>
+<figcaption><span class="tag">Figure S10.</span> Figure <a href="#fig-shared-budget">S5</a> at <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.1\)</span>.</figcaption>
+</figure>
+<figure class="figure" id="fig-shared-budget-c03">
+<a href="figures/f4_budget_r10_c0.3.svg"><img src="figures/f4_budget_r10_c0.3.svg" alt="Figure S11" loading="lazy"></a>
+<figcaption><span class="tag">Figure S11.</span> Figure <a href="#fig-shared-budget">S5</a> at <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.3\)</span>.</figcaption>
+</figure>
+<h3 id="supp-value"><span class="num">S6.4</span> What a question is worth</h3>
+<p>Table <a href="#tab-question-values">S10</a> gives the values of Figure 3 at prices of 0.01 and 0.03, with their bootstrap and model intervals (§ 5.3, § 5.4).</p>
+<figure class="table" id="tab-question-values">
+<figcaption><span class="tag">Table S10.</span> Value per question at <span class="math inline">\(r = 10\)</span> without budget limit, at prices of 0.01 and 0.03, sums over the three tested groups.</figcaption>
+<div class="scroll"><table>
+<thead><tr><th>Queue</th><th>Criterion</th><th class="r">Questions, c = 0.01</th><th class="c">Value <span>[</span>bootstrap 95%<span>]</span></th><th class="c">Model 95% interval</th><th class="r">Questions, c = 0.03</th><th class="c">Value <span>[</span>bootstrap 95%<span>]</span></th><th class="c">Model 95% interval</th></tr></thead>
+<tbody>
+<tr><td>1 a day</td><td>EDV</td><td class="r">13</td><td class="c">0.31 <span>[</span>0.077, 0.54<span>]</span></td><td class="c"><span>[</span>-1.1, 0.85<span>]</span></td><td class="r">13</td><td class="c">0.31 <span>[</span>0.077, 0.54<span>]</span></td><td class="c"><span>[</span>-1.1, 0.85<span>]</span></td></tr>
+<tr><td></td><td>IG</td><td class="r">13</td><td class="c">0.62 <span>[</span>0.38, 0.85<span>]</span></td><td class="c"><span>[</span>-1.5, 0.92<span>]</span></td><td class="r">13</td><td class="c">0.62 <span>[</span>0.31, 0.85<span>]</span></td><td class="c"><span>[</span>-1.5, 0.92<span>]</span></td></tr>
+<tr><td></td><td>random</td><td class="r">13</td><td class="c">0.55 <span>[</span>0.35, 0.74<span>]</span></td><td class="c"><span>[</span>-1.3, 0.86<span>]</span></td><td class="r">13</td><td class="c">0.57 <span>[</span>0.38, 0.76<span>]</span></td><td class="c"><span>[</span>-1.3, 0.88<span>]</span></td></tr>
+<tr><td>3 a day</td><td>EDV</td><td class="r">27</td><td class="c">1.3 <span>[</span>0.074, 3.7<span>]</span></td><td class="c"><span>[</span>-0.56, 0.7<span>]</span> *</td><td class="r">15</td><td class="c">0.4 <span>[</span>0, 0.83<span>]</span></td><td class="c"><span>[</span>-0.93, 0.73<span>]</span></td></tr>
+<tr><td></td><td>IG</td><td class="r">27</td><td class="c">1.4 <span>[</span>0.067, 3.9<span>]</span></td><td class="c"><span>[</span>-0.56, 0.7<span>]</span> *</td><td class="r">15</td><td class="c">0.47 <span>[</span>0, 1<span>]</span></td><td class="c"><span>[</span>-0.93, 0.8<span>]</span></td></tr>
+<tr><td></td><td>random</td><td class="r">27</td><td class="c">1.3 <span>[</span>0.073, 3.7<span>]</span></td><td class="c"><span>[</span>-0.52, 0.6<span>]</span> *</td><td class="r">15</td><td class="c">0.41 <span>[</span>0, 0.75<span>]</span></td><td class="c"><span>[</span>-1, 0.69<span>]</span></td></tr>
+<tr><td>10 a day</td><td>EDV</td><td class="r">90</td><td class="c">0.26 <span>[</span>-0.36, 1.1<span>]</span></td><td class="c"><span>[</span>-0.078, 0.41<span>]</span></td><td class="r">50</td><td class="c">-0.14 <span>[</span>-0.72, 0.65<span>]</span></td><td class="c"><span>[</span>-0.08, 0.6<span>]</span> *</td></tr>
+<tr><td></td><td>IG</td><td class="r">90</td><td class="c">0.26 <span>[</span>-0.36, 1.1<span>]</span></td><td class="c"><span>[</span>-0.078, 0.41<span>]</span></td><td class="r">50</td><td class="c">-0.14 <span>[</span>-0.72, 0.68<span>]</span></td><td class="c"><span>[</span>-0.08, 0.6<span>]</span> *</td></tr>
+<tr><td></td><td>random</td><td class="r">90</td><td class="c">0.19 <span>[</span>-0.39, 1<span>]</span></td><td class="c"><span>[</span>-0.11, 0.31<span>]</span></td><td class="r">50</td><td class="c">-0.23 <span>[</span>-0.73, 0.61<span>]</span></td><td class="c"><span>[</span>-0.14, 0.58<span>]</span> *</td></tr>
+<tr><td>30 a day</td><td>EDV</td><td class="r">150</td><td class="c">-0.11 <span>[</span>-0.42, 0.27<span>]</span></td><td class="c"><span>[</span>-0.053, 0.24<span>]</span> *</td><td class="r">64</td><td class="c">-0.11 <span>[</span>-0.86, 0.26<span>]</span></td><td class="c"><span>[</span>-0.078, 0.45<span>]</span> *</td></tr>
+<tr><td></td><td>IG</td><td class="r">150</td><td class="c">-0.11 <span>[</span>-0.42, 0.29<span>]</span></td><td class="c"><span>[</span>-0.053, 0.24<span>]</span> *</td><td class="r">64</td><td class="c">-0.11 <span>[</span>-1, 0.26<span>]</span></td><td class="c"><span>[</span>-0.078, 0.45<span>]</span> *</td></tr>
+<tr><td></td><td>random</td><td class="r">150</td><td class="c">-0.11 <span>[</span>-0.42, 0.3<span>]</span></td><td class="c"><span>[</span>-0.057, 0.24<span>]</span> *</td><td class="r">64</td><td class="c">-0.098 <span>[</span>-0.93, 0.27<span>]</span></td><td class="c"><span>[</span>-0.073, 0.45<span>]</span> *</td></tr>
+<tr><td>alert queue</td><td>EDV</td><td class="r">124</td><td class="c">0.0081 <span>[</span>-0.37, 0.16<span>]</span></td><td class="c"><span>[</span>-0.4, 0.43<span>]</span></td><td class="r">7</td><td class="c">-0.86 <span>[</span>-1, -0.67<span>]</span></td><td class="c"><span>[</span>-0.43, 2.9<span>]</span> *</td></tr>
+<tr><td></td><td>IG</td><td class="r">124</td><td class="c">0.016 <span>[</span>-0.29, 0.2<span>]</span></td><td class="c"><span>[</span>-0.4, 0.41<span>]</span></td><td class="r">7</td><td class="c">-0.71 <span>[</span>-1, 0<span>]</span></td><td class="c"><span>[</span>-0.14, 2.9<span>]</span> *</td></tr>
+<tr><td></td><td>random</td><td class="r">124</td><td class="c">0.19 <span>[</span>-0.24, 0.3<span>]</span></td><td class="c"><span>[</span>-0.26, 0.3<span>]</span></td><td class="r">7</td><td class="c">-0.66 <span>[</span>-1, -0.3<span>]</span></td><td class="c"><span>[</span>-0.31, 2.1<span>]</span> *</td></tr>
+</tbody></table></div>
+<p class="note">Questions: questions asked. Value: realised average decision loss saved per question, in false escalation units, with the 95 percent bootstrap interval from 2,000 resamples of the days of each collection together with their alarms. Model 95% interval: the interval within which the model expects 95 percent of realised values, from 2,000 draws of labels and answers under the model; *: the realised value lies outside it. Values rounded to two significant figures.</p>
+</figure>
+<p>Figures <a href="#fig-question-value-r5">S12</a> and <a href="#fig-question-value-r20">S13</a> repeat Figure 3 at the other two cost ratios of the realistic region. Each shows the realised average decision loss saved per question, in false escalation units, against the assumed price <span class="math inline">\(c\)</span>, with no shared budget, for expected decision value (EDV), information gain (IG) and random choice. Solid lines: alarm queues; dashed: all test windows under the same filter. Dotted line: the price itself; above it, the questions selected at that price save more loss than they cost in total. Right axis: the same decision loss in equivalent minutes, at 20 minutes per false escalation. A point is missing where no question is admissible.</p>
+<figure class="figure" id="fig-question-value-r5">
+<a href="figures/f5_value_r5.svg"><img src="figures/f5_value_r5.svg" alt="Figure S12" loading="lazy"></a>
+<figcaption><span class="tag">Figure S12.</span> Figure 3 at <span class="math inline">\(r = 5\)</span>.</figcaption>
+</figure>
+<figure class="figure" id="fig-question-value-r20">
+<a href="figures/f5_value_r20.svg"><img src="figures/f5_value_r20.svg" alt="Figure S13" loading="lazy"></a>
+<figcaption><span class="tag">Figure S13.</span> Figure 3 at <span class="math inline">\(r = 20\)</span>.</figcaption>
+</figure>
+<p>Table <a href="#tab-collection-results">S11</a> splits the results at <span class="math inline">\(r = 10\)</span> and <span class="math inline">\(c = 0.01\)</span> by tested collection.</p>
+<figure class="table" id="tab-collection-results">
+<figcaption><span class="tag">Table S11.</span> Results of each tested collection at <span class="math inline">\(r = 10\)</span>, <span class="math inline">\(c = 0.01\)</span> and no budget limit</figcaption>
+<div class="scroll"><table>
+<thead><tr><th>Collection</th><th>Queue</th><th>Labelled</th><th>Attack windows</th><th>Attacks</th><th>No question: caught / false</th><th>EDV: questions</th><th>EDV: caught / false</th><th>EDV: value per question</th><th>Attacks reached: none / EDV</th></tr></thead>
+<tbody>
+<tr><td>CADETS E3</td><td>1 a day</td><td>4</td><td>0</td><td>0</td><td>0 / 4</td><td>4</td><td>0 / 2</td><td>0.5</td><td>0 / 0</td></tr>
+<tr><td>CADETS E3</td><td>3 a day</td><td>12</td><td>2</td><td>1</td><td>0 / 0</td><td>0</td><td>0 / 0</td><td>n/a</td><td>0 / 0</td></tr>
+<tr><td>CADETS E3</td><td>10 a day</td><td>40</td><td>6</td><td>1</td><td>0 / 0</td><td>0</td><td>0 / 0</td><td>n/a</td><td>0 / 0</td></tr>
+<tr><td>CADETS E3</td><td>30 a day</td><td>120</td><td>7</td><td>1</td><td>0 / 0</td><td>0</td><td>0 / 0</td><td>n/a</td><td>0 / 0</td></tr>
+<tr><td>CADETS E3</td><td>alert queue</td><td>4</td><td>3</td><td>1</td><td>3 / 1</td><td>4</td><td>3 / 1</td><td>0</td><td>1 / 1</td></tr>
+<tr><td>ClearScope E3</td><td>1 a day</td><td>2</td><td>0</td><td>0</td><td>0 / 2</td><td>2</td><td>0 / 2</td><td>0</td><td>0 / 0</td></tr>
+<tr><td>ClearScope E3</td><td>3 a day</td><td>6</td><td>0</td><td>0</td><td>0 / 0</td><td>6</td><td>0 / 0</td><td>0</td><td>0 / 0</td></tr>
+<tr><td>ClearScope E3</td><td>10 a day</td><td>20</td><td>0</td><td>0</td><td>0 / 0</td><td>20</td><td>0 / 0</td><td>0</td><td>0 / 0</td></tr>
+<tr><td>ClearScope E3</td><td>30 a day</td><td>60</td><td>1</td><td>1</td><td>0 / 0</td><td>0</td><td>0 / 0</td><td>n/a</td><td>0 / 0</td></tr>
+<tr><td>ClearScope E3</td><td>alert queue</td><td>102</td><td>2</td><td>1</td><td>2 / 100</td><td>102</td><td>2 / 98</td><td>0.02</td><td>1 / 1</td></tr>
+<tr><td>THEIA E3</td><td>1 a day</td><td>2</td><td>1</td><td>1</td><td>1 / 1</td><td>2</td><td>1 / 1</td><td>0</td><td>1 / 1</td></tr>
+<tr><td>THEIA E3</td><td>3 a day</td><td>6</td><td>3</td><td>1</td><td>0 / 0</td><td>6</td><td>3 / 0</td><td>5</td><td>0 / 1</td></tr>
+<tr><td>THEIA E3</td><td>10 a day</td><td>20</td><td>4</td><td>1</td><td>0 / 0</td><td>20</td><td>3 / 0</td><td>1.5</td><td>0 / 1</td></tr>
+<tr><td>THEIA E3</td><td>30 a day</td><td>60</td><td>4</td><td>1</td><td>0 / 0</td><td>0</td><td>0 / 0</td><td>n/a</td><td>0 / 0</td></tr>
+<tr><td>THEIA E3</td><td>alert queue</td><td>11</td><td>4</td><td>1</td><td>4 / 7</td><td>11</td><td>4 / 2</td><td>0.45</td><td>1 / 1</td></tr>
+<tr><td>OpTC h051</td><td>1 a day</td><td>3</td><td>0</td><td>0</td><td>0 / 3</td><td>3</td><td>0 / 3</td><td>0</td><td>0 / 0</td></tr>
+<tr><td>OpTC h051</td><td>3 a day</td><td>9</td><td>0</td><td>0</td><td>0 / 9</td><td>9</td><td>0 / 7</td><td>0.22</td><td>0 / 0</td></tr>
+<tr><td>OpTC h051</td><td>10 a day</td><td>30</td><td>2</td><td>1</td><td>0 / 0</td><td>30</td><td>2 / 20</td><td>0</td><td>0 / 1</td></tr>
+<tr><td>OpTC h051</td><td>30 a day</td><td>90</td><td>4</td><td>1</td><td>0 / 0</td><td>90</td><td>2 / 33</td><td>-0.14</td><td>0 / 1</td></tr>
+<tr><td>OpTC h051</td><td>alert queue</td><td>4</td><td>0</td><td>0</td><td>0 / 0</td><td>4</td><td>0 / 4</td><td>-1</td><td>0 / 0</td></tr>
+<tr><td>ATLASv2</td><td>1 a day</td><td>2</td><td>0</td><td>0</td><td>0 / 2</td><td>2</td><td>0 / 0</td><td>1</td><td>0 / 0</td></tr>
+<tr><td>ATLASv2</td><td>3 a day</td><td>6</td><td>0</td><td>0</td><td>0 / 6</td><td>6</td><td>0 / 2</td><td>0.67</td><td>0 / 0</td></tr>
+<tr><td>ATLASv2</td><td>10 a day</td><td>20</td><td>0</td><td>0</td><td>0 / 0</td><td>20</td><td>0 / 7</td><td>-0.35</td><td>0 / 0</td></tr>
+<tr><td>ATLASv2</td><td>30 a day</td><td>60</td><td>3</td><td>2</td><td>0 / 0</td><td>60</td><td>1 / 14</td><td>-0.067</td><td>0 / 1</td></tr>
+<tr><td>ATLASv2</td><td>alert queue</td><td>3</td><td>0</td><td>0</td><td>0 / 0</td><td>3</td><td>0 / 2</td><td>-0.67</td><td>0 / 0</td></tr>
+</tbody></table></div>
+<p class="note">Asking no question against expected decision value. Labelled: labelled alarms. Attacks: distinct annotated attacks present. Caught / false: attack windows escalated and false escalations. Value per question: <span class="math inline">\((D_{\text{none}} - D)/Q\)</span>, n/a where no question is asked. Attacks reached: distinct attacks with at least one window escalated, without questions and under expected decision value.</p>
+</figure>
+<section class="references" id="references">
+<h2>References</h2>
+<p>Works cited on this page, numbered as in the paper.</p>
+<ol>
+<li id="ref-dong2023" value="6">Feng Dong, Shaofei Li, Peng Jiang, Ding Li, Haoyu Wang, Liangyi Huang, Xusheng Xiao, Jiedong Chen, Xiapu Luo, Yao Guo, Xiangqun Chen. Are we there yet? An Industrial Viewpoint on Provenance-based Endpoint Detection and Response Tools. ACM CCS 2023, pp. 2396–2410. doi: <a href="https://doi.org/10.1145/3576915.3616580">10.1145/3576915.3616580</a></li>
+<li id="ref-li2026" value="19">Zhenyuan Li, Zhengkai Wang, Ling Jiang, Xiangmin Shen, Ruixiao Lin, Sen Nie, et al. SherAgent: Scaling Attack Investigation in the Wild via LLM-Empowered Iterative Query-Filter Backtracking. Preprint, arXiv: <a href="https://arxiv.org/abs/2607.09176">2607.09176</a>, 2026</li>
+<li id="ref-kersten2023" value="20">Leon Kersten, Tom Mulders, Emmanuele Zambon, Chris Snijders, Luca Allodi. ‘Give Me Structure’: Synthesis and Evaluation of a (Network) Threat Analysis Process Supporting Tier 1 Investigations in a Security Operation Center. Nineteenth Symposium on Usable Privacy and Security (SOUPS 2023), pp. 97–111, 2023. <a href="https://www.usenix.org/conference/soups2023/presentation/kersten" class="uri">https://www.usenix.org/conference/soups2023/presentation/kersten</a></li>
+<li id="ref-chowdhury2026" value="27">Israt Jahan Chowdhury, Md Abu Yousuf Tanvir. Decision-Aware Trust Signal Alignment for SOC Alert Triage. Preprint, arXiv: <a href="https://arxiv.org/abs/2601.04486">2601.04486</a>, 2026</li>
+<li id="ref-yang2024" value="47">Limin Yang, Zhi Chen, Chenkai Wang, Zhenning Zhang, Sushruth Booma, Phuong Cao, Constantin Adam, Alexander Withers, Zbigniew Kalbarczyk, Ravishankar K. Iyer, Gang Wang. True Attacks, Attack Attempts, or Benign Triggers? An Empirical Measurement of Network Alerts in a Security Operations Center. 33rd USENIX Security Symposium, pp. 1525–1542, 2024. <a href="https://www.usenix.org/conference/usenixsecurity24/presentation/yang-limin" class="uri">https://www.usenix.org/conference/usenixsecurity24/presentation/yang-limin</a></li>
+</ol>
+</section>
+<footer>Built from the paper sources of 28 October 2026. Code released under the GNU General Public License v3.0.</footer>
+</main>
+</div>
+</body>
+</html>
