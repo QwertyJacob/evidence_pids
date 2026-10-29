@@ -49,46 +49,62 @@ def save(fig, name):
 
 
 def f0():
-    # the worked example of Section 2.4: 10,000 windows at p = 6.4 percent, r = 10, one question with two answers
-    n, p, t = 10_000, 0.064, 1 / 11
-    att, oth = n * p, n * (1 - p)
-    rows = [("before asking", 1.0, 1.0, "640 attacks + 9,360 others = 10,000"),
-            ("answer $e_1$\nLR = 2", 0.4, 0.2, "256 (×0.4) + 1,872 (×0.2) = 2,128"),
-            ("answer $e_2$\nLR = 0.75", 0.6, 0.8, "384 (×0.6) + 7,488 (×0.8) = 7,872")]
+    with plt.rc_context({"font.family": "Liberation Sans", "mathtext.fontset": "custom",
+                         "mathtext.rm": "Liberation Sans", "mathtext.it": "Liberation Sans:italic",
+                         "mathtext.bf": "Liberation Sans:bold"}):
+        _f0()
+
+
+def _f0():
+    """Explain how the two answers divide the same 10,000 windows."""
+    n, attacks, benign, threshold = 10_000, 640, 9_360, 100 / 11
+    rows = [
+        ("Before asking", attacks, benign, None, None),
+        (r"Answer $e_1$", 256, 1_872, 0.4, 0.2),
+        (r"Answer $e_2$", 384, 7_488, 0.6, 0.8),
+    ]
     light = "#a9c9ef"
-    fig, (axa, axb) = plt.subplots(1, 2, figsize=(7.2, 2.4), sharey=True, gridspec_kw={"width_ratios": [3, 2], "wspace": 0.14})
-    for y, (_, k1, k0, txt) in zip((2, 1, 0), rows):
-        a, o = att * k1, oth * k0
-        axa.barh(y, a, height=0.42, color=ORANGE, lw=0)
-        axa.barh(y, o, left=a, height=0.42, color=light, lw=0)
-        axa.text(0, y + 0.27, txt, fontsize=7, color=INK2, va="bottom")
-        share = a / (a + o)
-        axb.barh(y, 100 * share, height=0.42, color=ORANGE, lw=0)
-        axb.barh(y, 25 - 100 * share, left=100 * share, height=0.42, color=light, lw=0)
-        up = share >= t
-        axb.text(25, y + 0.27, f"{100 * share:.1f}%: " + ("escalate" if up else "dismiss"), fontsize=7,
-                 ha="right", va="bottom", color=INK if up else INK2, fontweight="bold" if up else "normal")
-    axb.axvline(100 * t, color=INK, lw=1.0)
-    axb.text(100 * t + 0.4, -0.55, "threshold 9.1%", fontsize=7, color=INK)
-    axb.text(24.6, 2, "to 100%", fontsize=6.5, color=INK2, ha="right", va="center")
-    axa.set_yticks([2, 1, 0], [r[0] for r in rows], fontsize=7.5)
-    axa.set_xlim(0, n)
-    axa.set_xticks([0, 2500, 5000, 7500, 10000], ["0", "2,500", "5,000", "7,500", "10,000"])
-    axa.set_xlabel("windows giving each answer", fontsize=8)
-    axb.set_xlim(0, 25)
-    axb.set_xlabel("share within each bar (%)", fontsize=8)
-    axa.set_title("(a) each answer keeps a share of each group", fontsize=8, loc="left")
-    axb.set_title("(b) each bar rescaled to 100%", fontsize=8, loc="left")
-    for ax in (axa, axb):
-        ax.set_ylim(-0.7, 2.75)
-        ax.grid(axis="y", visible=False)
-        ax.tick_params(axis="y", length=0)
-        ax.tick_params(axis="x", labelsize=7.5)
-        ax.set_axisbelow(True)
-    axb.spines["left"].set_visible(False)
-    fig.legend(handles=[plt.Rectangle((0, 0), 1, 1, color=ORANGE), plt.Rectangle((0, 0), 1, 1, color=light)],
-               labels=["attack windows", "other windows"], loc="upper center", ncol=2, fontsize=7.5,
-               bbox_to_anchor=(0.5, 1.07))
+    fig = plt.figure(figsize=(7.5, 2.15))
+    text_ax = fig.add_axes([0.02, 0.17, 0.65, 0.70])
+    chart_ax = fig.add_axes([0.70, 0.17, 0.235, 0.70])
+    text_ax.set_xlim(0, 1)
+    text_ax.set_ylim(-0.65, 2.75)
+    text_ax.axis("off")
+    text_ax.text(0.00, 2.68, "Answer", fontsize=9.5, fontweight="bold")
+    text_ax.text(0.23, 2.68, "Windows in each group", fontsize=9.5, fontweight="bold")
+    text_ax.text(0.70, 2.68, "Total", fontsize=9.5, fontweight="bold")
+    for y, (label, a, b, k1, k0) in zip((2, 1, 0), rows):
+        total = a + b
+        text_ax.text(0.00, y, label, fontsize=9.5, va="center", fontweight="bold")
+        if k1 is None:
+            attack_line, benign_line = "640 attack windows", "9,360 benign windows"
+        else:
+            attack_line = f"640 × {k1:.1f} = {a:,} attack"
+            benign_line = f"9,360 × {k0:.1f} = {b:,} benign"
+        text_ax.text(0.23, y + 0.20, attack_line, fontsize=9, color=ORANGE, va="center")
+        text_ax.text(0.23, y - 0.20, benign_line, fontsize=9, color=BLUE, va="center")
+        text_ax.text(0.70, y, f"{total:,}", fontsize=9.5, va="center")
+        share = 100 * a / total
+        chart_ax.barh(y, 25, height=0.38, color=light, zorder=1)
+        chart_ax.barh(y, share, height=0.38, color=ORANGE, zorder=2)
+        chart_ax.text(0.5, y, f"{a:,} / {total:,} = {share:.1f}%", fontsize=9, va="center",
+                      color=INK, zorder=4)
+        chart_ax.text(25.6, y, "escalate" if share >= threshold else "dismiss", fontsize=8.5,
+                      va="center", ha="left", color=INK if share >= threshold else INK2,
+                      fontweight="bold" if share >= threshold else "normal", clip_on=False)
+    chart_ax.axvline(threshold, color=INK, lw=1, zorder=0)
+    chart_ax.text(threshold + 0.4, -0.49, "9.1% threshold", fontsize=8.5, color=INK)
+    chart_ax.set_xlim(0, 25)
+    chart_ax.set_ylim(-0.65, 2.75)
+    chart_ax.set_yticks([])
+    chart_ax.set_xticks([0, 5, 10, 15, 20, 25])
+    chart_ax.tick_params(axis="x", labelsize=8.5)
+    chart_ax.set_xlabel("Attack probability (%)", fontsize=9.5)
+    chart_ax.set_title("Attack share and decision", fontsize=9.5, fontweight="bold", loc="left")
+    chart_ax.spines["left"].set_visible(False)
+    chart_ax.grid(axis="y", visible=False)
+    chart_ax.set_axisbelow(True)
+    fig.text(0.02, 0.96, "10,000 windows: 640 attack and 9,360 benign", fontsize=10.5, fontweight="bold")
     save(fig, "f0_example")
 
 
