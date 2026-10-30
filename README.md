@@ -1,6 +1,6 @@
-# Which Alarms Deserve Costly Evidence? A Decision Framework for Automated Triage, from Provenance Benchmarks to Deployment
+# Towards Active Inference Triage Agents: Budgeted Evidence Gathering in Provenance-Based Intrusion Detection
 
-This repository is the official implementation of the paper *Which Alarms Deserve Costly Evidence? A Decision Framework for Automated Triage, from Provenance Benchmarks to Deployment*.
+This repository is the official implementation of the paper *Towards Active Inference Triage Agents: Budgeted Evidence Gathering in Provenance-Based Intrusion Detection*.
 
 ## Authors
 

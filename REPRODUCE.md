@@ -1,6 +1,6 @@
 # Reproducing the experiments
 
-This document explains what this repository reproduces, which data it starts from, how to run it and how each output relates to the paper *Which Alarms Deserve Costly Evidence? A Decision Framework for Automated Triage, from Provenance Benchmarks to Deployment*. Section, figure and table numbers refer to the current version of the manuscript. Items prefixed with S belong to the [supplementary material](https://qwertyjacob.github.io/evidence_pids/), including the shared daily budget analysis in [Section S6.3](https://qwertyjacob.github.io/evidence_pids/#supp-budget).
+This document explains what this repository reproduces, which data it starts from, how to run it and how each output relates to the paper *Towards Active Inference Triage Agents: Budgeted Evidence Gathering in Provenance-Based Intrusion Detection*. Section, figure and table numbers refer to the current version of the manuscript. Items prefixed with S belong to the [supplementary material](https://qwertyjacob.github.io/evidence_pids/), including the shared daily budget analysis in [Section S6.3](https://qwertyjacob.github.io/evidence_pids/#supp-budget).
 
 ## 1. Overview
 
