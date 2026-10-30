@@ -190,6 +190,8 @@ Outputs: `robustness_*.csv`.
 
 `claims.py` computes the ranges over the realistic region (queues of 1, 3, 10 and 30 alarms a day and the alert queue; `r` = 5, 10, 20; `c` = 0.001 to 0.3) that the text quotes. `figure_data.py` writes small CSV inputs for the figures, and computes the zones of Figure S1 (the starting probabilities from which some answer can move the decision across the threshold) from the fitted models. `make_figures.py` draws the figures and `tables.py` writes `results/tables.md`, with a cross-check of each value against a second route where one exists; a failed cross-check is printed as a mismatch.
 
+To rebuild only the webpage plots, run `python scripts/make_web_figures.py`. This writes scalable SVG images and 600 dpi PNG downloads to `docs/figures/`, with larger labels and legends and bold tick labels. The paper figures in `figures/` are unchanged.
+
 ## 6. Determinism and checks
 
 The pipeline is deterministic. Random choice of a question orders the questions of an alarm by the SHA256 digest of the alarm's key, the seed and the question, so it does not depend on the machine. The bootstrap, the predictive intervals and the Monte Carlo check of `power.py` use numpy generators with the fixed seed 20261024.
